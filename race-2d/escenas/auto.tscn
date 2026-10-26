@@ -10,6 +10,7 @@ size = Vector2(58, 32)
 script = ExtResource("1_j252b")
 
 [node name="GrayCar" type="Sprite2D" parent="." unique_id=317098257]
+texture_filter = 1
 rotation = 1.5707964
 texture = ExtResource("1_0kxqx")
 
