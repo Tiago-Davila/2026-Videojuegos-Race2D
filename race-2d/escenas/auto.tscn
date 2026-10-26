@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c67cea6qjystb"]
+
+[ext_resource type="Texture2D" uid="uid://c0k2p5g8qlfkd" path="res://assets/gray_car.png" id="1_0kxqx"]
+[ext_resource type="Script" uid="uid://2x3lf0sntm46" path="res://scripts/movimiento-auto.gd" id="1_j252b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0uws"]
+size = Vector2(58, 32)
+
+[node name="Area2D" type="Area2D" unique_id=290478783]
+script = ExtResource("1_j252b")
+
+[node name="GrayCar" type="Sprite2D" parent="." unique_id=317098257]
+rotation = 1.5707964
+texture = ExtResource("1_0kxqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=478544235]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_r0uws")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=205511686]

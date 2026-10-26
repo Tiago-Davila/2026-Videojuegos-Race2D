@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cihbtim1xg1mh"]
+
+[ext_resource type="Texture2D" uid="uid://xocpwxenw8eg" path="res://assets/carreras.svg" id="1_ys0hv"]
+[ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
+
+[node name="Carrera2D" type="Node2D" unique_id=1347419899]
+
+[node name="Carreras" type="Sprite2D" parent="." unique_id=2121110353]
+position = Vector2(568.5, 323.49997)
+scale = Vector2(0.6581342, 0.3630682)
+texture = ExtResource("1_ys0hv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131550049]
+texture = SubResource("CanvasTexture_o8dpa")
+
+[node name="Area2D" parent="." unique_id=290478783 instance=ExtResource("2_5yg0m")]
