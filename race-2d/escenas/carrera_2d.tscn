@@ -13,6 +13,10 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
+
 [node name="Carrera2D" type="Node2D" unique_id=1347419899]
 
 [node name="Pista1" parent="." unique_id=91167748 instance=ExtResource("1_jhv02")]
@@ -29,3 +33,35 @@ texture_filter = 1
 texture = SubResource("CanvasTexture_o8dpa")
 
 [node name="auto" parent="." unique_id=329217169 instance=ExtResource("2_5yg0m")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=329851399]
+position = Vector2(0, -2862)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1251063998]
+scale = Vector2(424.74194, 12.085687)
+shape = SubResource("RectangleShape2D_5yg0m")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=581666430]
+position = Vector2(-3743, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=695198980]
+scale = Vector2(10.704939, -289.2837)
+shape = SubResource("RectangleShape2D_jhv02")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1250271317]
+position = Vector2(0, 2023)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2050126630]
+scale = Vector2(424.74194, 12.085687)
+shape = SubResource("RectangleShape2D_5yg0m")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=824499495]
+position = Vector2(2971, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=689748307]
+scale = Vector2(10.704939, -289.2837)
+shape = SubResource("RectangleShape2D_jhv02")
