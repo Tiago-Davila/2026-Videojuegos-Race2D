@@ -48,6 +48,11 @@ nitro={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Auto"
+2d_physics/layer_2="Pared"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
