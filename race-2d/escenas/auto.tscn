@@ -2,19 +2,32 @@
 
 [ext_resource type="Texture2D" uid="uid://c0k2p5g8qlfkd" path="res://assets/gray_car.png" id="1_0kxqx"]
 [ext_resource type="Script" uid="uid://2x3lf0sntm46" path="res://scripts/movimiento-auto.gd" id="1_j252b"]
+[ext_resource type="Script" uid="uid://buq8hf1mlnb0j" path="res://scripts/aceleracion-auto.gd" id="2_acele"]
+[ext_resource type="Script" uid="uid://dxbhxfojg3qwe" path="res://scripts/nitro-auto.gd" id="3_nitro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0uws"]
 size = Vector2(58, 32)
 
-[node name="Area2D" type="Area2D" unique_id=290478783]
-script = ExtResource("1_j252b")
+[node name="auto" type="CharacterBody2D" unique_id=329217169]
 
-[node name="GrayCar" type="Sprite2D" parent="." unique_id=317098257]
+[node name="GrayCar" type="Sprite2D" parent="." unique_id=373566057]
 rotation = 1.5707964
 texture = ExtResource("1_0kxqx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=478544235]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1800124739]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2145589483]
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_r0uws")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=205511686]
+[node name="Aceleracion" type="Node" parent="." unique_id=1071309218]
+script = ExtResource("2_acele")
+
+[node name="Nitro" type="Node" parent="." unique_id=1265421467]
+script = ExtResource("3_nitro")
+
+[node name="Movimiento" type="Node" parent="." unique_id=1417817607 node_paths=PackedStringArray("cuerpo", "aceleracion", "nitro")]
+script = ExtResource("1_j252b")
+cuerpo = NodePath("..")
+aceleracion = NodePath("../Aceleracion")
+nitro = NodePath("../Nitro")

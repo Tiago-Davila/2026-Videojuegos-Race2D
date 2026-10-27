@@ -15,4 +15,4 @@ texture = ExtResource("1_ys0hv")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131550049]
 texture = SubResource("CanvasTexture_o8dpa")
 
-[node name="Area2D" parent="." unique_id=290478783 instance=ExtResource("2_5yg0m")]
+[node name="auto" parent="." unique_id=329217169 instance=ExtResource("2_5yg0m")]
