@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cihbtim1xg1mh"]
 
+[ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pista_1_22.tscn" id="1_jhv02"]
 [ext_resource type="Texture2D" uid="uid://xocpwxenw8eg" path="res://assets/carreras.svg" id="1_ys0hv"]
 [ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
-[ext_resource type="PackedScene" uid="uid://cshd6kwowgjab" path="res://escenas/carrera-demo.tscn" id="3_jhv02"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
 
@@ -19,5 +19,7 @@ texture = SubResource("CanvasTexture_o8dpa")
 
 [node name="Area2D" parent="." unique_id=290478783 instance=ExtResource("2_5yg0m")]
 
-[node name="Node2D" parent="." unique_id=91167748 instance=ExtResource("3_jhv02")]
-position = Vector2(1234, -637)
+[node name="Pista1" parent="." unique_id=91167748 instance=ExtResource("1_jhv02")]
+points = PackedVector2Array(-446, 191, 90, 191, 353, 188, 413, 187, 429, 144, 427, 112, 411, 41, 407, 9, 363, -140, 342, -256, 323, -291, 246, -312, 213, -293, 173, -262, 152, -228, 159, -201, 221, -182, 241, -159, 257, -95, 260, -16, 257, 15, 212, 60, 144, 53, 20, 45, -9, 47, -40, 58, -101, 66, -209, 63, -281, 42, -296, 13, -239, -4, -180, -6, -60, -4, -43, -24, -80, -48, -130, -61, -231, -95, -233, -129, -222, -154, -210, -186, -209, -212, -209, -228, -299, -256, -307, -278, -312, -304, -378, -280, -384, -265, -389, -235, -392, -198, -402, -161, -410, -122, -429, -67, -452, -1, -449, 50, -418, 57, -421, 76, -415, 111, -429, 166)
+closed = true
+width = 22.0
