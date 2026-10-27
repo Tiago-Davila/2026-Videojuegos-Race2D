@@ -1,18 +1,31 @@
 [gd_scene format=3 uid="uid://cihbtim1xg1mh"]
 
-[ext_resource type="Texture2D" uid="uid://xocpwxenw8eg" path="res://assets/carreras.svg" id="1_ys0hv"]
+[ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
 [ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
+
+[sub_resource type="Gradient" id="Gradient_jhv02"]
+offsets = PackedFloat32Array(0, 0.047826085, 0.9434783, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8fd86"]
+gradient = SubResource("Gradient_jhv02")
+fill_to = Vector2(0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
 
 [node name="Carrera2D" type="Node2D" unique_id=1347419899]
 
-[node name="Carreras" type="Sprite2D" parent="." unique_id=2121110353]
-position = Vector2(568.5, 323.49997)
-scale = Vector2(0.6581342, 0.3630682)
-texture = ExtResource("1_ys0hv")
+[node name="Pista1" parent="." unique_id=91167748 instance=ExtResource("1_jhv02")]
+scale = Vector2(2.5885482, 2.492673)
+points = PackedVector2Array(-1328, 685, 1039, 668, 921, 136, 921, -168, 889, -994, 700, -1005, 539, -933, 172, -644, 162, -450, 214, -325, 327, -284, 419, -138, 520, -57, 520, 11, 579, 421, 261, 487, -114, 480, -587, 417, -641, 316, -511, 295, 90, 267, 220, 212, 95, 123, -299, 57, -218, -68, -211, -141, -260, -185, -489, -244, -428, -439, -630, -513, -700, -606, -717, -800, -742, -875, -801, -968, -856, -984, -911, -976, -956, -926, -1265, 189, -1144, 287, -1033, 373, -1259, 552)
+closed = true
+width = 125.0
+texture = SubResource("GradientTexture2D_8fd86")
+texture_mode = 2
+joint_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131550049]
+texture_filter = 1
 texture = SubResource("CanvasTexture_o8dpa")
 
 [node name="auto" parent="." unique_id=329217169 instance=ExtResource("2_5yg0m")]

@@ -10,7 +10,8 @@ size = Vector2(58, 32)
 
 [node name="auto" type="CharacterBody2D" unique_id=329217169]
 
-[node name="GrayCar" type="Sprite2D" parent="." unique_id=373566057]
+[node name="GrayCar" type="Sprite2D" parent="." unique_id=317098257]
+texture_filter = 1
 rotation = 1.5707964
 texture = ExtResource("1_0kxqx")
 
