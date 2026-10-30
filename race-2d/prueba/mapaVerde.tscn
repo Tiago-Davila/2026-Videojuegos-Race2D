@@ -2,6 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://djxc64dqqbt2v" path="res://icon.svg" id="1_g413k"]
 [ext_resource type="PackedScene" uid="uid://ddcyi8hmvmaem" path="res://prueba/p1.tscn" id="2_m5ilx"]
+[ext_resource type="Script" uid="uid://cxucltgjfh064" path="res://prueba/controlesDelPlayer.gd" id="3_m5ilx"]
+
+[sub_resource type="Resource" id="Resource_24g1l"]
+script = ExtResource("3_m5ilx")
+movIzq = "izquierdaP2"
+movDer = "derechaP2"
+aceler = "acelerarP2"
+desaceler = "desacelerarP2"
+metadata/_custom_type_script = "uid://cxucltgjfh064"
 
 [node name="Node2D" type="Node2D" unique_id=936847363]
 
@@ -11,3 +20,4 @@ scale = Vector2(2.5, 1.96875)
 texture = ExtResource("1_g413k")
 
 [node name="Node2D" parent="." unique_id=1543104246 instance=ExtResource("2_m5ilx")]
+controles = SubResource("Resource_24g1l")

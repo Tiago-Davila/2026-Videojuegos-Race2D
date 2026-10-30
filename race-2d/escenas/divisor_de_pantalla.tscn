@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bg38h8pad7r8x"]
+
+[ext_resource type="PackedScene" uid="uid://cihbtim1xg1mh" path="res://escenas/carrera_2d.tscn" id="1_d1rhs"]
+
+[node name="DivisorDePantalla" type="Control" unique_id=312220420]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1378565661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer" unique_id=2048549747]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer" unique_id=1616092931]
+handle_input_locally = false
+size = Vector2i(574, 322)
+render_target_update_mode = 4
+
+[node name="Carrera2D" parent="GridContainer/SubViewportContainer/SubViewport" unique_id=1347419899 instance=ExtResource("1_d1rhs")]
+position = Vector2(605, -12)
+
+[node name="Camera2D_P1" type="Camera2D" parent="GridContainer/SubViewportContainer/SubViewport" unique_id=87570635]
+position = Vector2(350, 150)
+zoom = Vector2(0.3, 0.3)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer" unique_id=30638422]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer2" unique_id=703119385]
+handle_input_locally = false
+size = Vector2i(574, 322)
+render_target_update_mode = 4
+
+[node name="Camera2D_P2" type="Camera2D" parent="GridContainer/SubViewportContainer2/SubViewport" unique_id=384235913]
+zoom = Vector2(0.3, 0.3)
+
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="GridContainer" unique_id=531141336]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer3" unique_id=892642527]
+handle_input_locally = false
+size = Vector2i(574, 322)
+render_target_update_mode = 4
+
+[node name="Camera2D_P3" type="Camera2D" parent="GridContainer/SubViewportContainer3/SubViewport" unique_id=1821841828]
+zoom = Vector2(0.3, 0.3)
+
+[node name="SubViewportContainer4" type="SubViewportContainer" parent="GridContainer" unique_id=2143109835]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer4" unique_id=728201786]
+handle_input_locally = false
+size = Vector2i(574, 322)
+render_target_update_mode = 4
+
+[node name="Camera2D_P4" type="Camera2D" parent="GridContainer/SubViewportContainer4/SubViewport" unique_id=1599800032]
+zoom = Vector2(0.3, 0.3)

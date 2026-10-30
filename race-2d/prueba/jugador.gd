@@ -12,8 +12,8 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	var dir = Input.get_vector(controles.movIzq, controles.movDer, controles.aceler, controles.desaceler)
-	velocity = dir * velocidad
-	if dir != Vector2.ZERO:
-		sprite.rotation = dir.angle() + PI / 2
+	var direccion = Input.get_vector(controles.movIzq, controles.movDer, controles.aceler, controles.desaceler)
+	velocity = direccion * velocidad
+	if direccion != Vector2.ZERO:
+		sprite.rotation = direccion.angle() + PI / 2
 	move_and_slide()
