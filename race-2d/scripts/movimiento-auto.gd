@@ -3,6 +3,7 @@ extends Node
 var acelerador: float = 0.0
 var velocidad: float = 0.0
 var volante: float = 0.0
+var friccion_pasto: float = 0.0
 
 @export var cuerpo: CharacterBody2D
 @export var aceleracion: Node
@@ -46,6 +47,7 @@ func aplicar_aceleracion(delta: float) -> void:
 		velocidad += aceleracion_final * acelerador * delta
 	else:
 		velocidad -= aceleracion.obtener_friccion() * delta
+	velocidad -= velocidad * friccion_pasto * delta
 	velocidad = clampf(velocidad, 0.0, limite)
 
 
