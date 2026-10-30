@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cmas0rbfdvquo"]
+
+[ext_resource type="Texture2D" uid="uid://bplmr5l43p420" path="res://assets/FondoMenu.png" id="1_5t3kx"]
+[ext_resource type="Texture2D" uid="uid://bfwq4idgdrrcb" path="res://assets/Bahrein.png" id="2_56ah5"]
+[ext_resource type="Texture2D" uid="uid://csigbu7lb3g5q" path="res://assets/Brasil.png" id="3_xqndx"]
+[ext_resource type="Texture2D" uid="uid://b5lqexgococd0" path="res://assets/Italia.png" id="4_yb3qj"]
+[ext_resource type="Texture2D" uid="uid://v773fydx7ci0" path="res://assets/Monaco.png" id="5_4gv4q"]
+
+[node name="Node2D" type="Node2D" unique_id=144370520]
+
+[node name="FondoMenu" type="Sprite2D" parent="." unique_id=1319308071]
+position = Vector2(574.87506, 320.84375)
+scale = Vector2(0.6879486, 0.68258494)
+texture = ExtResource("1_5t3kx")
+
+[node name="Bahrein" type="Sprite2D" parent="." unique_id=1507845292]
+position = Vector2(160.00002, 563)
+scale = Vector2(0.9740259, 1.0564514)
+texture = ExtResource("2_56ah5")
+
+[node name="Brasil" type="Sprite2D" parent="." unique_id=928435461]
+position = Vector2(437, 568)
+scale = Vector2(0.9338709, 1.0000002)
+texture = ExtResource("3_xqndx")
+
+[node name="Italia" type="Sprite2D" parent="." unique_id=1488602945]
+position = Vector2(988, 574)
+texture = ExtResource("4_yb3qj")
+
+[node name="Monaco" type="Sprite2D" parent="." unique_id=1603775341]
+position = Vector2(712, 573)
+texture = ExtResource("5_4gv4q")
