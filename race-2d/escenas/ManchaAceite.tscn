@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bq5egg1vk3b6p"]
+
+[ext_resource type="Script" uid="uid://bxb3px1wi58fk" path="res://escenas/mancha_aceite.gd" id="1_hmlp5"]
+[ext_resource type="Texture2D" uid="uid://wy0f5gop2l7h" path="res://assets/manchaAceite.png" id="1_ymct2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hmlp5"]
+radius = 16.0
+height = 56.0
+
+[node name="ManchaAceite" type="Area2D" unique_id=2105248696]
+script = ExtResource("1_hmlp5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=117481909]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ymct2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1768763587]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_hmlp5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
