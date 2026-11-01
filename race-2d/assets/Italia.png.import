@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://b5lqexgococd0"
+=======
+uid="uid://doxdjrpj5lkxk"
+>>>>>>> origin/main
 path="res://.godot/imported/Italia.png-99b4a68cb630ee6996ec438d629fba5a.ctex"
 metadata={
 "vram_texture": false
