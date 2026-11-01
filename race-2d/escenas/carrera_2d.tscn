@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
 [ext_resource type="PackedScene" uid="uid://bq5egg1vk3b6p" path="res://escenas/ManchaAceite.tscn" id="2_8fd86"]
 [ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="3_55sh6"]
+[ext_resource type="PackedScene" uid="uid://ck1ll80fdvucb" path="res://escenas/ruta_aceite.tscn" id="4_8fd86"]
 
 [sub_resource type="Gradient" id="Gradient_jhv02"]
 offsets = PackedFloat32Array(0, 0.058441557, 0.9434783, 1)
@@ -78,5 +79,10 @@ shape = SubResource("RectangleShape2D_jhv02")
 
 [node name="Camino" type="Path2D" parent="." unique_id=1731316960]
 curve = SubResource("Curve2D_jhv02")
+
+[node name="RutaAceite" parent="Camino" unique_id=401595507 node_paths=PackedStringArray("sueltaAceite") instance=ExtResource("4_8fd86")]
+position = Vector2(-1893, -2128)
+rotation = 1.369034
+sueltaAceite = NodePath("../../SueltaAceite")
 
 [node name="SueltaAceite" type="Node" parent="." unique_id=1114780268]

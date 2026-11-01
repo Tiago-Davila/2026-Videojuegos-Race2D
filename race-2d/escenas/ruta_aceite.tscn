@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ck1ll80fdvucb"]
+
+[ext_resource type="Script" uid="uid://dolgke50tsd5m" path="res://scripts/ruta_aceite.gd" id="1_5earm"]
+[ext_resource type="Texture2D" uid="uid://wy0f5gop2l7h" path="res://assets/manchaAceite.png" id="1_qwxei"]
+
+[node name="RutaAceite" type="PathFollow2D" unique_id=401595507]
+script = ExtResource("1_5earm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=226843082]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_qwxei")
+
+[node name="Temporizador" type="Timer" parent="." unique_id=553770005]
+
+[connection signal="timeout" from="Temporizador" to="." method="_on_timer_timeout"]
