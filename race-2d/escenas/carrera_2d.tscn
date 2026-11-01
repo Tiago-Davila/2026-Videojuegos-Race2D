@@ -33,6 +33,7 @@ texture_filter = 1
 texture = SubResource("CanvasTexture_o8dpa")
 
 [node name="auto" parent="." unique_id=329217169 instance=ExtResource("2_5yg0m")]
+position = Vector2(-340, 197)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=329851399]
 position = Vector2(0, -2862)
@@ -65,3 +66,12 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=689748307]
 scale = Vector2(10.704939, -289.2837)
 shape = SubResource("RectangleShape2D_jhv02")
+
+[node name="auto2" parent="." unique_id=269555807 instance=ExtResource("2_5yg0m")]
+position = Vector2(-338, 125)
+
+[node name="auto3" parent="." unique_id=755602063 instance=ExtResource("2_5yg0m")]
+position = Vector2(-163, 168)
+
+[node name="auto4" parent="." unique_id=1326863560 instance=ExtResource("2_5yg0m")]
+position = Vector2(-252, 310)

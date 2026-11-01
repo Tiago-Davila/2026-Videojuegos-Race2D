@@ -16,8 +16,6 @@ texture_filter = 1
 rotation = 1.5707964
 texture = ExtResource("1_0kxqx")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1800124739]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2145589483]
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_r0uws")
