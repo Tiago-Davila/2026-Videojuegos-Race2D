@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cmas0rbfdvquo"]
+
+[ext_resource type="Texture2D" uid="uid://bplmr5l43p420" path="res://assets/FondoMenu.png" id="1_5t3kx"]
+[ext_resource type="Texture2D" uid="uid://bfwq4idgdrrcb" path="res://assets/Bahrein.png" id="2_56ah5"]
+[ext_resource type="Texture2D" uid="uid://csigbu7lb3g5q" path="res://assets/Brasil.png" id="3_xqndx"]
+[ext_resource type="Texture2D" uid="uid://b5lqexgococd0" path="res://assets/Italia.png" id="4_yb3qj"]
+[ext_resource type="Texture2D" uid="uid://v773fydx7ci0" path="res://assets/Monaco.png" id="5_4gv4q"]
+[ext_resource type="Texture2D" uid="uid://cxh61yhuwq7qd" path="res://assets/titulo.svg" id="6_titulo"]
+[ext_resource type="Texture2D" uid="uid://dynftxx8uf6y8" path="res://assets/1Jugador.png" id="7_j1"]
+[ext_resource type="Texture2D" uid="uid://ss3py3fasg7s" path="res://assets/2Jugadores.png" id="8_j2"]
+[ext_resource type="Texture2D" uid="uid://bmoq4q6o6styw" path="res://assets/3Jugadors.png" id="9_j3"]
+[ext_resource type="Texture2D" uid="uid://bimfivxmtyeup" path="res://assets/4Jugadores.png" id="10_j4"]
+[ext_resource type="Script" uid="uid://bqdo2u8x2qnbs" path="res://scripts/boton_jugadores.gd" id="11_bj"]
+[ext_resource type="Script" uid="uid://b1rtq7gfp6qpv" path="res://scripts/boton_carrera.gd" id="12_bc"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_jugadores"]
+
+[node name="Node2D" type="Node2D" unique_id=144370520]
+
+[node name="FondoMenu" type="Sprite2D" parent="." unique_id=1319308071]
+position = Vector2(574.87506, 320.84375)
+scale = Vector2(0.6879486, 0.68258494)
+texture = ExtResource("1_5t3kx")
+
+[node name="Titulo" type="TextureRect" parent="." unique_id=1439188144]
+custom_minimum_size = Vector2(0, 180)
+offset_left = -184.00002
+offset_top = 6.9999995
+offset_right = 968.0
+offset_bottom = 187.0
+scale = Vector2(0.8618957, 0.7641187)
+size_flags_vertical = 8
+texture = ExtResource("6_titulo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Jugadores" type="Node2D" parent="." unique_id=598857288]
+position = Vector2(827, 193)
+
+[node name="Jugadores1" type="Button" parent="Jugadores" unique_id=1663273437]
+custom_minimum_size = Vector2(250, 62)
+offset_left = 58.0
+offset_right = 308.0
+offset_bottom = 62.0
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_jugadores")
+icon = ExtResource("7_j1")
+expand_icon = true
+script = ExtResource("11_bj")
+cantidad = 1
+
+[node name="Jugadores2" type="Button" parent="Jugadores" unique_id=768605938]
+custom_minimum_size = Vector2(250, 62)
+offset_left = 65.0
+offset_top = 69.0
+offset_right = 315.0
+offset_bottom = 131.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_jugadores")
+icon = ExtResource("8_j2")
+expand_icon = true
+script = ExtResource("11_bj")
+cantidad = 2
+
+[node name="Jugadores3" type="Button" parent="Jugadores" unique_id=1032343249]
+custom_minimum_size = Vector2(250, 62)
+offset_left = 70.0
+offset_top = 139.0
+offset_right = 320.0
+offset_bottom = 201.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_jugadores")
+icon = ExtResource("9_j3")
+expand_icon = true
+script = ExtResource("11_bj")
+cantidad = 3
+
+[node name="Jugadores4" type="Button" parent="Jugadores" unique_id=933796893]
+custom_minimum_size = Vector2(250, 62)
+offset_left = 60.0
+offset_top = 210.0
+offset_right = 310.0
+offset_bottom = 272.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_jugadores")
+icon = ExtResource("10_j4")
+expand_icon = true
+script = ExtResource("11_bj")
+cantidad = 4
+
+[node name="Carreras" type="Node2D" parent="." unique_id=282277842]
+position = Vector2(11, 502)
+
+[node name="Bahrein" type="Button" parent="Carreras" unique_id=1469915060]
+custom_minimum_size = Vector2(260, 105)
+offset_left = 38.0
+offset_right = 298.0
+offset_bottom = 105.0
+theme_type_variation = &"BotonCarrera"
+icon = ExtResource("2_56ah5")
+expand_icon = true
+script = ExtResource("12_bc")
+escena = "res://escenas/carrera_2d.tscn"
+
+[node name="Brasil" type="Button" parent="Carreras" unique_id=1371805828]
+custom_minimum_size = Vector2(260, 105)
+offset_left = 310.0
+offset_right = 570.0
+offset_bottom = 105.0
+theme_type_variation = &"BotonCarrera"
+icon = ExtResource("3_xqndx")
+expand_icon = true
+script = ExtResource("12_bc")
+escena = "res://escenas/carrera_brasil.tscn"
+
+[node name="Monaco" type="Button" parent="Carreras" unique_id=1831292610]
+custom_minimum_size = Vector2(260, 105)
+offset_left = 582.0
+offset_right = 842.0
+offset_bottom = 105.0
+theme_type_variation = &"BotonCarrera"
+icon = ExtResource("5_4gv4q")
+expand_icon = true
+script = ExtResource("12_bc")
+escena = "res://escenas/carrera_monaco.tscn"
+
+[node name="Italia" type="Button" parent="Carreras" unique_id=1752965294]
+custom_minimum_size = Vector2(260, 105)
+offset_left = 854.0
+offset_right = 1114.0
+offset_bottom = 105.0
+theme_type_variation = &"BotonCarrera"
+icon = ExtResource("4_yb3qj")
+expand_icon = true
+script = ExtResource("12_bc")
+escena = "res://escenas/carrera_italia.tscn"

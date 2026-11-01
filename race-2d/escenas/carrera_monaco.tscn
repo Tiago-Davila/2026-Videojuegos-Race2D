@@ -1,0 +1,106 @@
+[gd_scene format=4]
+
+[ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
+[ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
+[ext_resource type="Texture2D" uid="uid://caufoucxmfyn8" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
+[ext_resource type="Texture2D" uid="uid://boll2ytkb620c" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
+[ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
+texture = ExtResource("3_g101")
+texture_region_size = Vector2i(1024, 1024)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g102"]
+texture = ExtResource("4_g102")
+texture_region_size = Vector2i(1024, 1024)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pasto"]
+tile_size = Vector2i(1024, 1024)
+sources/0 = SubResource("TileSetAtlasSource_g101")
+sources/1 = SubResource("TileSetAtlasSource_g102")
+
+[sub_resource type="Gradient" id="Gradient_jhv02"]
+offsets = PackedFloat32Array(0, 0.047826085, 0.9434783, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8fd86"]
+gradient = SubResource("Gradient_jhv02")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
+
+[node name="CarreraMonaco" type="Node2D" unique_id=1347419899]
+
+[node name="Pasto" type="TileMapLayer" parent="." unique_id=1424766592]
+tile_map_data = PackedByteArray("AAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_pasto")
+
+[node name="Pista1" parent="." unique_id=91167748 instance=ExtResource("1_jhv02")]
+scale = Vector2(2.5885482, 2.492673)
+points = PackedVector2Array(-700, -45, -381, -83, -126, -122, 2, -147, 40, -249, 129, -415, 257, -581, 385, -658, 551, -670, 678, -632, 742, -530, 819, -402, 742, -300, 576, -288, 525, -198, 678, -96, 908, -45, 1010, 57, 908, 159, 678, 223, 321, 261, 40, 287, -62, 236, -164, 287, -394, 312, -624, 299, -713, 248, -815, 299, -930, 325, -1160, 350, -1300, 287, -1300, 159, -1185, 31, -981, -20)
+closed = true
+width = 125.0
+texture = SubResource("GradientTexture2D_8fd86")
+texture_mode = 2
+joint_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131550049]
+texture_filter = 1
+texture = SubResource("CanvasTexture_o8dpa")
+
+[node name="auto" parent="." unique_id=329217169 instance=ExtResource("2_5yg0m")]
+position = Vector2(-1812, -112)
+rotation = -0.1142
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=329851399]
+position = Vector2(0, -2862)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1251063998]
+scale = Vector2(424.74194, 12.085687)
+shape = SubResource("RectangleShape2D_5yg0m")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=581666430]
+position = Vector2(-3743, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=695198980]
+scale = Vector2(10.704939, -289.2837)
+shape = SubResource("RectangleShape2D_jhv02")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1250271317]
+position = Vector2(0, 2023)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2050126630]
+scale = Vector2(424.74194, 12.085687)
+shape = SubResource("RectangleShape2D_5yg0m")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=824499495]
+position = Vector2(2971, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=689748307]
+scale = Vector2(10.704939, -289.2837)
+shape = SubResource("RectangleShape2D_jhv02")
+
+[node name="ZonaPasto" type="Area2D" parent="." unique_id=1897456753]
+script = ExtResource("5_pasto")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ZonaPasto"]
+polygon = PackedVector2Array(-3750, -2870, -3750, 2030, -111, 2030, -111, 786, -160, 762, -352, 855, -393, 868, -1016, 933, -1639, 899, -1696, 880, -1851, 795, -2055, 892, -2372, 962, -3002, 1028, -3069, 1015, -3445, 851, -3482, 823, -3509, 787, -3524, 745, -3527, 715, -3527, 396, -3513, 333, -3485, 292, -3188, -27, -3151, -56, -3122, -69, -2566, -203, -1829, -267, -1008, -361, -354, -458, -115, -503, -111, -2870)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ZonaPasto"]
+polygon = PackedVector2Array(-111, 2030, 2980, 2030, 2980, -2870, -111, -2870, -111, -512, -39, -694, 198, -1119, 558, -1565, 913, -1774, 955, -1791, 1415, -1825, 1458, -1823, 1801, -1725, 1832, -1712, 1872, -1683, 2058, -1404, 2259, -1082, 2272, -1055, 2282, -1009, 2277, -963, 2258, -921, 2050, -654, 2017, -623, 1991, -608, 1948, -594, 1589, -569, 1574, -543, 1820, -385, 2385, -264, 2428, -249, 2465, -222, 2739, 43, 2769, 97, 2776, 142, 2769, 187, 2739, 241, 2439, 527, 2394, 546, 1785, 709, 848, 806, 103, 871, 45, 861, -111, 786)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="ZonaPasto"]
+polygon = PackedVector2Array(-2512, 104, -2980, 217, -3203, 456, -3203, 615, -2976, 713, -2434, 656, -2164, 598, -1903, 473, -1841, 462, -1779, 476, -1568, 592, -1024, 621, -471, 564, -233, 449, -169, 433, -103, 442, 135, 556, 815, 496, 1725, 402, 2266, 257, 2386, 142, 2269, 30, 1720, -87, 1678, -102, 1269, -364, 1234, -395, 1216, -421, 1204, -450, 1197, -496, 1211, -556, 1350, -795, 1380, -831, 1418, -857, 1464, -871, 1836, -898, 1925, -1012, 1650, -1443, 1408, -1513, 1047, -1487, 775, -1330, 470, -950, 251, -556, 150, -297, 110, -248, 68, -223, -302, -150, -967, -52, -1793, 43)
+
+[connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
+[connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]
