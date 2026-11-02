@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
 [ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
-[ext_resource type="Texture2D" uid="uid://caufoucxmfyn8" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
-[ext_resource type="Texture2D" uid="uid://boll2ytkb620c" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
+[ext_resource type="Texture2D" uid="uid://dy7vhx2e86equ" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
+[ext_resource type="Texture2D" uid="uid://dod6qbkqu31ky" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
-[ext_resource type="Texture2D" uid="uid://cyr2ekeeoskmp" path="res://assets/Start.png" id="6_u3swq"]
+[ext_resource type="Texture2D" uid="uid://bkotx82k8qxaa" path="res://assets/Start.png" id="6_u3swq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -65,38 +65,6 @@ texture = ExtResource("6_u3swq")
 position = Vector2(-2105, -524)
 rotation = -1.134464
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=329851399]
-position = Vector2(0, -2862)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1251063998]
-scale = Vector2(424.74194, 12.085687)
-shape = SubResource("RectangleShape2D_5yg0m")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=581666430]
-position = Vector2(-3743, 0)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=695198980]
-scale = Vector2(10.704939, -289.2837)
-shape = SubResource("RectangleShape2D_jhv02")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1250271317]
-position = Vector2(0, 2023)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2050126630]
-scale = Vector2(424.74194, 12.085687)
-shape = SubResource("RectangleShape2D_5yg0m")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=824499495]
-position = Vector2(2971, 0)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=689748307]
-scale = Vector2(10.704939, -289.2837)
-shape = SubResource("RectangleShape2D_jhv02")
-
 [node name="ZonaPasto" type="Area2D" parent="." unique_id=1897456753]
 script = ExtResource("5_pasto")
 
@@ -108,6 +76,40 @@ polygon = PackedVector2Array(-279, 2030, 2980, 2030, 2980, -2870, -279, -2870, -
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="ZonaPasto" unique_id=2064409250]
 polygon = PackedVector2Array(-999, -2287, -1520, -2186, -1644, -1921, -1375, -1657, -1351, -1602, -1348, -1557, -1354, -1527, -1532, -1099, -1863, -617, -2433, 478, -2655, 1016, -2537, 1392, -2089, 1485, -1343, 1305, -928, 905, -925, 226, -654, -387, -620, -422, -563, -449, -21, -535, 27, -526, 56, -513, 104, -472, 374, -36, 382, -8, 383, 37, 306, 625, 503, 1002, 960, 1152, 1411, 1440, 1674, 1389, 1914, 857, 1914, -359, 1599, -1500, 1077, -2144, 450, -2287)
+
+[node name="Bordes" type="Node2D" parent="." unique_id=554127499]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bordes" unique_id=329851399]
+position = Vector2(0, -2862)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bordes/StaticBody2D" unique_id=1251063998]
+scale = Vector2(424.74194, 12.085687)
+shape = SubResource("RectangleShape2D_5yg0m")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Bordes" unique_id=581666430]
+position = Vector2(-3743, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bordes/StaticBody2D2" unique_id=695198980]
+scale = Vector2(10.704939, -289.2837)
+shape = SubResource("RectangleShape2D_jhv02")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Bordes" unique_id=1250271317]
+position = Vector2(0, 2023)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bordes/StaticBody2D3" unique_id=2050126630]
+scale = Vector2(424.74194, 12.085687)
+shape = SubResource("RectangleShape2D_5yg0m")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Bordes" unique_id=824499495]
+position = Vector2(2971, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bordes/StaticBody2D4" unique_id=689748307]
+scale = Vector2(10.704939, -289.2837)
+shape = SubResource("RectangleShape2D_jhv02")
 
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
 [connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]
