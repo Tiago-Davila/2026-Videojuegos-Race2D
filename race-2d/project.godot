@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Race2D"
-run/main_scene="uid://c67cea6qjystb"
+run/main_scene="uid://cihbtim1xg1mh"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://cihbtim1xg1mh"
 
 [autoload]
 

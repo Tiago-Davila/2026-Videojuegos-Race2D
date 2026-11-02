@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cihbtim1xg1mh"]
 
 [ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
-[ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
+[ext_resource type="PackedScene" uid="uid://bq5egg1vk3b6p" path="res://escenas/manchaAceite.tscn" id="2_8fd86"]
+[ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="3_55sh6"]
+[ext_resource type="PackedScene" uid="uid://ck1ll80fdvucb" path="res://escenas/ruta_aceite.tscn" id="4_8fd86"]
 
 [sub_resource type="Gradient" id="Gradient_jhv02"]
-offsets = PackedFloat32Array(0, 0.047826085, 0.9434783, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.058441557, 0.9434783, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.2901961, 0.2901961, 0.2901961, 1, 0.288518, 0.28851798, 0.28851798, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8fd86"]
 gradient = SubResource("Gradient_jhv02")
@@ -16,6 +18,12 @@ fill_to = Vector2(0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
+
+[sub_resource type="Curve2D" id="Curve2D_jhv02"]
+_data = {
+"points": PackedVector2Array(-68.35499, -334.17996, 68.35499, 334.17996, -1893, -2128, -72.15249, -220.25496, 72.15249, 220.25496, -1839, -1500, 0, 0, 0, 0, -1644, -1273, -60.75999, -125.31748, 60.75999, 125.31748, -1118, -1089, -125.31748, -159.49498, 125.31748, 159.49498, -1232, -617, -37.974995, -155.69748, 37.974995, 155.69748, -545, -369, -106.32999, -72.15249, 106.32999, 72.15249, -748, 119, 26.582497, -265.82495, -26.582497, 265.82495, 502, 507, 87.34247, -151.89998, -87.34247, 151.89998, -1573, 787, 0, 0, 0, 0, -1554, 1027, 0, 0, 0, 0, -274, 1194, 0, 0, 0, 0, 671, 1224, -68.35499, 56.962494, 68.35499, -56.962494, 1471, 1060, 88.18726, 145.24962, -88.18726, -145.24962, 1324, -153, 116.963, 246.45773, -116.963, -246.45773, 868, -665, -29.240753, 363.42078, 29.240753, -363.42078, 421, -1129, -16.709, 50.127, 16.709, -50.127, 453, -1626, -217.217, 4.17725, 217.217, -4.17725, 1796, -2505, -75.1905, -96.07675, 75.1905, 96.07675, 2277, -2448, -33.637512, -343.10263, 33.637512, 343.10263, 2358, 344, 82.92398, -43.234592, -82.92398, 43.234592, 2684, 1655, 0, 0, 0, 0, 1658, 1713, 0, 0, 0, 0, 50, 1709, 380.12976, -33.418003, -380.12976, 33.418003, -3370, 1703, -120.82953, 141.54315, 120.82953, -141.54315, -2720, 984, 3.4522722, 158.80452, -3.4522722, -158.80452, -3282, 452, -68.35499, 148.10248, 68.35499, -148.10248, -2503, -2247, -117.72248, 34.177494, 117.72248, -34.177494, -2297, -2453, -129.11497, -75.94999, 129.11497, 75.94999, -2041, -2414, 0, 0, 0, 0, -2041, -2414, 0, 0, 0, 0, -1893, -2128)
+}
+point_count = 31
 
 [node name="Carrera2D" type="Node2D" unique_id=1347419899]
 
@@ -28,40 +36,53 @@ texture = SubResource("GradientTexture2D_8fd86")
 texture_mode = 2
 joint_mode = 2
 
+[node name="ManchaAceite" parent="." unique_id=2105248696 instance=ExtResource("2_8fd86")]
+position = Vector2(-374, -861)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131550049]
 texture_filter = 1
 texture = SubResource("CanvasTexture_o8dpa")
 
-[node name="auto" parent="." unique_id=329217169 instance=ExtResource("2_5yg0m")]
+[node name="auto" parent="." unique_id=329217169 instance=ExtResource("3_55sh6")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=329851399]
-position = Vector2(0, -2862)
+[node name="Norte" type="StaticBody2D" parent="." unique_id=329851399]
+position = Vector2(0, -2860)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1251063998]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Norte" unique_id=1251063998]
 scale = Vector2(424.74194, 12.085687)
 shape = SubResource("RectangleShape2D_5yg0m")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=581666430]
-position = Vector2(-3743, 0)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=695198980]
-scale = Vector2(10.704939, -289.2837)
-shape = SubResource("RectangleShape2D_jhv02")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1250271317]
+[node name="Sur" type="StaticBody2D" parent="." unique_id=1250271317]
 position = Vector2(0, 2023)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2050126630]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sur" unique_id=2050126630]
 scale = Vector2(424.74194, 12.085687)
 shape = SubResource("RectangleShape2D_5yg0m")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=824499495]
+[node name="Este" type="StaticBody2D" parent="." unique_id=824499495]
 position = Vector2(2971, 0)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=689748307]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Este" unique_id=689748307]
 scale = Vector2(10.704939, -289.2837)
 shape = SubResource("RectangleShape2D_jhv02")
+
+[node name="Oeste" type="StaticBody2D" parent="." unique_id=581666430]
+position = Vector2(-3743, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oeste" unique_id=695198980]
+scale = Vector2(10.704939, -289.2837)
+shape = SubResource("RectangleShape2D_jhv02")
+
+[node name="Camino" type="Path2D" parent="." unique_id=1731316960]
+curve = SubResource("Curve2D_jhv02")
+
+[node name="RutaAceite" parent="Camino" unique_id=401595507 node_paths=PackedStringArray("sueltaAceite") instance=ExtResource("4_8fd86")]
+position = Vector2(-1893, -2128)
+rotation = 1.369034
+sueltaAceite = NodePath("../../SueltaAceite")
+
+[node name="SueltaAceite" type="Node" parent="." unique_id=1114780268]
