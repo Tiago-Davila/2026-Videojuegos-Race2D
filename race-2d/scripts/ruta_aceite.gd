@@ -2,7 +2,7 @@ extends PathFollow2D
 
 class_name SueltaAceite
 
-const MANCHA_ACEITE = preload("res://escenas/ManchaAceite.tscn")
+const MANCHA_ACEITE = preload("res://escenas/manchaAceite.tscn")
 
 @export var sueltaAceite: Node
 @export var velocidad: float = 120

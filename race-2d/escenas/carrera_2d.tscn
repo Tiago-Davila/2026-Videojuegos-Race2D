@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cihbtim1xg1mh"]
 
 [ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
-[ext_resource type="PackedScene" uid="uid://bq5egg1vk3b6p" path="res://escenas/ManchaAceite.tscn" id="2_8fd86"]
+[ext_resource type="PackedScene" uid="uid://bq5egg1vk3b6p" path="res://escenas/manchaAceite.tscn" id="2_8fd86"]
 [ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="3_55sh6"]
 [ext_resource type="PackedScene" uid="uid://ck1ll80fdvucb" path="res://escenas/ruta_aceite.tscn" id="4_8fd86"]
 
