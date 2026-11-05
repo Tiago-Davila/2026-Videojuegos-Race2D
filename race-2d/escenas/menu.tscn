@@ -101,7 +101,7 @@ theme_type_variation = &"BotonCarrera"
 icon = ExtResource("2_56ah5")
 expand_icon = true
 script = ExtResource("12_bc")
-escena = "res://escenas/carrera_2d.tscn"
+escena = "res://escenas/carrera-bahrain.tscn"
 
 [node name="Brasil" type="Button" parent="Carreras" unique_id=1371805828]
 custom_minimum_size = Vector2(260, 105)
