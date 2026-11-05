@@ -4,7 +4,10 @@
 [ext_resource type="Script" uid="uid://2x3lf0sntm46" path="res://scripts/movimiento-auto.gd" id="1_j252b"]
 [ext_resource type="Script" uid="uid://buq8hf1mlnb0j" path="res://scripts/aceleracion-auto.gd" id="2_acele"]
 [ext_resource type="Script" uid="uid://dxbhxfojg3qwe" path="res://scripts/nitro-auto.gd" id="3_nitro"]
-[ext_resource type="Script" uid="uid://dl1exlaqhpf8" path="res://scripts/marchas.gd" id="5_0wprh"]
+[ext_resource type="Script" uid="uid://cpoq5j6xw5ew5" path="res://scripts/marchas.gd" id="5_0wprh"]
+[ext_resource type="Script" uid="uid://prnvf1arwh6f" path="res://scripts/hud.gd" id="6_hud"]
+[ext_resource type="Texture2D" uid="uid://dmqqsqaeu6foa" path="res://assets/tablero.svg" id="7_tablero"]
+[ext_resource type="Texture2D" uid="uid://de4s72wmaq3xa" path="res://assets/digitos.svg" id="8_digitos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0uws"]
 size = Vector2(58, 32)
@@ -29,11 +32,45 @@ script = ExtResource("2_acele")
 [node name="Nitro" type="Node" parent="." unique_id=1265421467]
 script = ExtResource("3_nitro")
 
-[node name="Movimiento" type="Node" parent="." unique_id=1417817607 node_paths=PackedStringArray("cuerpo", "aceleracion", "nitro")]
+[node name="Movimiento" type="Node" parent="." unique_id=1417817607 node_paths=PackedStringArray("cuerpo", "aceleracion", "nitro", "marchas")]
 script = ExtResource("1_j252b")
 cuerpo = NodePath("..")
 aceleracion = NodePath("../Aceleracion")
 nitro = NodePath("../Nitro")
+marchas = NodePath("../Marcha")
 
-[node name="Marcha" type="Node" parent="." unique_id=318074638]
+[node name="Marcha" type="Node" parent="." unique_id=318074638 node_paths=PackedStringArray("aceleracion")]
 script = ExtResource("5_0wprh")
+aceleracion = NodePath("../Aceleracion")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1096684590 node_paths=PackedStringArray("movimiento", "marchas", "marcha", "velocidad")]
+script = ExtResource("6_hud")
+movimiento = NodePath("../Movimiento")
+marchas = NodePath("../Marcha")
+marcha = NodePath("Tablero/Marcha")
+velocidad = NodePath("Tablero/Velocidad")
+
+[node name="Tablero" type="Node2D" parent="HUD" unique_id=1434457080]
+position = Vector2(787, 446)
+scale = Vector2(0.6, 0.6)
+
+[node name="Fondo" type="Sprite2D" parent="HUD/Tablero" unique_id=590261877]
+texture = ExtResource("7_tablero")
+centered = false
+
+[node name="Marcha" type="Sprite2D" parent="HUD/Tablero" unique_id=220050631]
+position = Vector2(150, 62)
+texture = ExtResource("8_digitos")
+centered = false
+hframes = 10
+
+[node name="Velocidad" type="Label" parent="HUD/Tablero" unique_id=929393571]
+offset_left = 300.0
+offset_top = 125.0
+offset_right = 490.0
+offset_bottom = 235.0
+theme_override_colors/font_color = Color(0.957, 0.965, 0.973, 1)
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1

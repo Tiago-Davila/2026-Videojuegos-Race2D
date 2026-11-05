@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cihbtim1xg1mh"]
+[gd_scene format=3]
 
 [ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
 [ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
