@@ -1,9 +1,9 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://ifnnnlkhrx"]
 
 [ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
 [ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
-[ext_resource type="Texture2D" uid="uid://caufoucxmfyn8" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
-[ext_resource type="Texture2D" uid="uid://boll2ytkb620c" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
+[ext_resource type="Texture2D" uid="uid://dy7vhx2e86equ" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
+[ext_resource type="Texture2D" uid="uid://dod6qbkqu31ky" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
@@ -23,17 +23,11 @@ sources/1 = SubResource("TileSetAtlasSource_g102")
 
 [sub_resource type="Gradient" id="Gradient_jhv02"]
 offsets = PackedFloat32Array(0, 0.047826085, 0.9434783, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.2901961, 0.2901961, 0.2901961, 1, 0.2901961, 0.2901961, 0.2901961, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8fd86"]
 gradient = SubResource("Gradient_jhv02")
 fill_to = Vector2(0, 1)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
 
 [sub_resource type="Gradient" id="Gradient_centro"]
 interpolation_mode = 1
@@ -42,8 +36,13 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_centro"]
 gradient = SubResource("Gradient_centro")
-width = 64
 height = 32
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
 
 [node name="CarreraMonaco" type="Node2D" unique_id=1347419899]
 
@@ -60,12 +59,11 @@ texture = SubResource("GradientTexture2D_8fd86")
 texture_mode = 2
 joint_mode = 2
 
-[node name="LineaCentral" type="Line2D" parent="Pista1"]
+[node name="LineaCentral" type="Line2D" parent="Pista1" unique_id=521586796]
 texture_filter = 1
 texture_repeat = 2
 points = PackedVector2Array(-700, -45, -381, -83, -126, -122, 2, -147, 40, -249, 129, -415, 257, -581, 385, -658, 551, -670, 678, -632, 742, -530, 819, -402, 742, -300, 576, -288, 525, -198, 678, -96, 908, -45, 1010, 57, 908, 159, 678, 223, 321, 261, 40, 287, -62, 236, -164, 287, -394, 312, -624, 299, -713, 248, -815, 299, -930, 325, -1160, 350, -1300, 287, -1300, 159, -1185, 31, -981, -20)
 closed = true
-width = 10.0
 texture = SubResource("GradientTexture2D_centro")
 texture_mode = 1
 
@@ -112,13 +110,13 @@ shape = SubResource("RectangleShape2D_jhv02")
 [node name="ZonaPasto" type="Area2D" parent="." unique_id=1897456753]
 script = ExtResource("5_pasto")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ZonaPasto"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ZonaPasto" unique_id=583505796]
 polygon = PackedVector2Array(-3750, -2870, -3750, 2030, -120, 2030, -120, 831, -160, 811, -332, 894, -384, 911, -1015, 977, -1646, 943, -1701, 927, -1852, 844, -2040, 933, -2362, 1005, -3002, 1072, -3046, 1067, -3088, 1054, -3484, 878, -3514, 854, -3549, 807, -3564, 772, -3572, 715, -3572, 396, -3568, 355, -3554, 315, -3519, 263, -3221, -56, -3191, -83, -3137, -110, -2574, -246, -1833, -311, -1014, -405, -362, -501, -148, -541, -120, -615, -120, -2870)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ZonaPasto"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ZonaPasto" unique_id=2100105471]
 polygon = PackedVector2Array(-120, 2030, 2980, 2030, 2980, -2870, -120, -2870, -120, -615, -79, -715, 160, -1143, 501, -1570, 542, -1609, 890, -1811, 943, -1833, 1411, -1869, 1486, -1861, 1834, -1760, 1872, -1740, 1904, -1714, 2096, -1427, 2297, -1105, 2315, -1069, 2325, -1031, 2327, -992, 2321, -953, 2297, -898, 2086, -628, 2044, -588, 1993, -561, 1955, -551, 1674, -531, 1838, -426, 2395, -307, 2450, -287, 2497, -253, 2775, 16, 2806, 66, 2822, 142, 2806, 218, 2775, 269, 2464, 563, 2406, 588, 1811, 748, 853, 849, 103, 915, 28, 901, -120, 831)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="ZonaPasto"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="ZonaPasto" unique_id=2096387520]
 polygon = PackedVector2Array(-2505, 147, -2956, 256, -3158, 473, -3158, 586, -2969, 668, -2441, 613, -2180, 556, -1938, 440, -1860, 419, -1799, 424, -1761, 436, -1555, 549, -1025, 578, -484, 521, -253, 410, -213, 395, -171, 389, -129, 391, -87, 402, 143, 512, 810, 452, 1716, 359, 2242, 218, 2322, 142, 2247, 70, 1710, -45, 1657, -64, 1244, -328, 1212, -353, 1176, -401, 1160, -438, 1153, -477, 1153, -517, 1162, -555, 1311, -816, 1348, -862, 1398, -896, 1456, -914, 1812, -940, 1870, -1015, 1621, -1406, 1403, -1469, 1061, -1445, 805, -1297, 508, -926, 293, -538, 191, -278, 155, -228, 122, -202, 85, -183, -295, -107, -962, -9, -1787, 86)
 
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]

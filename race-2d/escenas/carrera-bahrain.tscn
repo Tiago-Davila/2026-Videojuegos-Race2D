@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dy7vhx2e86equ" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
 [ext_resource type="Texture2D" uid="uid://dod6qbkqu31ky" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
+[ext_resource type="PackedScene" uid="uid://ck1ll80fdvucb" path="res://escenas/ruta_aceite.tscn" id="6_opgbm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -23,17 +24,11 @@ sources/1 = SubResource("TileSetAtlasSource_g102")
 
 [sub_resource type="Gradient" id="Gradient_jhv02"]
 offsets = PackedFloat32Array(0, 0.047826085, 0.9434783, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.2901961, 0.2901961, 0.2901961, 1, 0.2901961, 0.2901961, 0.2901961, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8fd86"]
 gradient = SubResource("Gradient_jhv02")
 fill_to = Vector2(0, 1)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
 
 [sub_resource type="Gradient" id="Gradient_centro"]
 interpolation_mode = 1
@@ -42,8 +37,19 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_centro"]
 gradient = SubResource("Gradient_centro")
-width = 64
 height = 32
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
+
+[sub_resource type="Curve2D" id="Curve2D_dgekq"]
+_data = {
+"points": PackedVector2Array(-68.35499, -334.17996, 68.35499, 334.17996, -1893, -2128, -72.15249, -220.25496, 72.15249, 220.25496, -1839, -1500, 0, 0, 0, 0, -1644, -1273, -60.75999, -125.31748, 60.75999, 125.31748, -1118, -1089, -125.31748, -159.49498, 125.31748, 159.49498, -1232, -617, -37.974995, -155.69748, 37.974995, 155.69748, -545, -369, -106.32999, -72.15249, 106.32999, 72.15249, -748, 119, 26.582497, -265.82495, -26.582497, 265.82495, 502, 507, 87.34247, -151.89998, -87.34247, 151.89998, -1573, 787, 0, 0, 0, 0, -1554, 1027, 0, 0, 0, 0, -274, 1194, 0, 0, 0, 0, 671, 1224, -68.35499, 56.962494, 68.35499, -56.962494, 1471, 1060, 88.18726, 145.24962, -88.18726, -145.24962, 1324, -153, 116.963, 246.45773, -116.963, -246.45773, 868, -665, -29.240753, 363.42078, 29.240753, -363.42078, 421, -1129, -16.709, 50.127, 16.709, -50.127, 453, -1626, -217.217, 4.17725, 217.217, -4.17725, 1796, -2505, -75.1905, -96.07675, 75.1905, 96.07675, 2277, -2448, -33.637512, -343.10263, 33.637512, 343.10263, 2358, 344, 82.92398, -43.234592, -82.92398, 43.234592, 2684, 1655, 0, 0, 0, 0, 1658, 1713, 0, 0, 0, 0, 50, 1709, 380.12976, -33.418003, -380.12976, 33.418003, -3370, 1703, -120.82953, 141.54315, 120.82953, -141.54315, -2720, 984, 3.4522722, 158.80452, -3.4522722, -158.80452, -3282, 452, -68.35499, 148.10248, 68.35499, -148.10248, -2503, -2247, -117.72248, 34.177494, 117.72248, -34.177494, -2297, -2453, -129.11497, -75.94999, 129.11497, 75.94999, -2041, -2414, 0, 0, 0, 0, -2041, -2414, 0, 0, 0, 0, -1893, -2128)
+}
+point_count = 31
 
 [node name="Carrera2D" type="Node2D" unique_id=1347419899]
 
@@ -60,12 +66,11 @@ texture = SubResource("GradientTexture2D_8fd86")
 texture_mode = 2
 joint_mode = 2
 
-[node name="LineaCentral" type="Line2D" parent="Pista1"]
+[node name="LineaCentral" type="Line2D" parent="Pista1" unique_id=5922308]
 texture_filter = 1
 texture_repeat = 2
 points = PackedVector2Array(-1328, 685, 1039, 668, 921, 136, 921, -168, 889, -994, 700, -1005, 539, -933, 172, -644, 162, -450, 214, -325, 327, -284, 419, -138, 520, -57, 520, 11, 579, 421, 261, 487, -114, 480, -587, 417, -641, 316, -511, 295, 90, 267, 220, 212, 95, 123, -299, 57, -218, -68, -211, -141, -260, -185, -489, -244, -428, -439, -630, -513, -700, -606, -717, -800, -742, -875, -801, -968, -856, -984, -911, -976, -956, -926, -1265, 189, -1144, 287, -1033, 373, -1259, 552)
 closed = true
-width = 10.0
 texture = SubResource("GradientTexture2D_centro")
 texture_mode = 1
 
@@ -110,17 +115,27 @@ shape = SubResource("RectangleShape2D_jhv02")
 [node name="ZonaPasto" type="Area2D" parent="." unique_id=1897456753]
 script = ExtResource("5_pasto")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ZonaPasto"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ZonaPasto" unique_id=1520882038]
 polygon = PackedVector2Array(-3750, -2870, -3750, 2030, -186, 2030, -186, 1884, -3456, 1906, -3534, 1884, -3583, 1850, -3628, 1786, -3645, 1710, -3636, 1652, -3621, 1616, -3443, 1284, -3419, 1249, -3388, 1220, -3010, 931, -3433, 599, -3472, 532, -3480, 494, -3478, 437, -2674, -2361, -2661, -2396, -2629, -2442, -2498, -2580, -2447, -2613, -2388, -2630, -2246, -2650, -2179, -2649, -1995, -2598, -1941, -2566, -1911, -2537, -1734, -2267, -1660, -2057, -1650, -2012, -1611, -1585, -1502, -1446, -1037, -1282, -1001, -1265, -956, -1229, -922, -1182, -908, -1147, -902, -1072, -1003, -749, -584, -641, -535, -610, -394, -487, -361, -441, -347, -406, -340, -332, -366, -113, -381, -78, -429, -4, -186, 35, -186, -2870)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ZonaPasto"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ZonaPasto" unique_id=1462762475]
 polygon = PackedVector2Array(-186, 2030, 2980, 2030, 2980, -2870, -186, -2870, -186, 35, 280, 110, 350, 134, 720, 391, 762, 456, 777, 531, 767, 588, 752, 623, 716, 669, 668, 704, 279, 860, -186, 884, -186, 999, 656, 1014, 1266, 892, 1141, 56, 1139, -46, 955, -188, 923, -220, 709, -544, 464, -631, 427, -652, 396, -681, 363, -734, 222, -1062, 213, -1132, 238, -1616, 250, -1671, 277, -1721, 317, -1762, 1267, -2482, 1311, -2508, 1727, -2687, 1784, -2703, 2353, -2671, 2409, -2648, 2469, -2595, 2497, -2543, 2508, -2485, 2591, -426, 2591, 317, 2897, 1661, 2889, 1720, 2874, 1756, 2851, 1789, 2789, 1840, 2711, 1863, -186, 1884)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="ZonaPasto"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="ZonaPasto" unique_id=982406989]
 polygon = PackedVector2Array(-186, 884, -910, 916, -279, 997, -186, 999)
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="ZonaPasto"]
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="ZonaPasto" unique_id=400776236]
 polygon = PackedVector2Array(2432, 1467, 2178, 361, 2177, -415, 2102, -2289, 1850, -2303, 1503, -2154, 647, -1505, 629, -1157, 710, -968, 935, -888, 984, -857, 1022, -814, 1241, -479, 1491, -284, 1517, -254, 1537, -219, 1552, -162, 1553, 13, 1706, 1041, 1699, 1101, 1674, 1156, 1633, 1201, 1581, 1233, 718, 1409, 672, 1413, -322, 1394, -1547, 1237, -1621, 1213, -1680, 1165, -1842, 882, -1858, 845, -1865, 806, -1862, 746, -1840, 690, -1802, 643, -1769, 619, -1732, 601, -1332, 536, 35, 475, -808, 339, -884, 311, -931, 272, -963, 222, -976, 185, -980, 126, -973, 87, -948, 34, -766, -237, -762, -270, -774, -280, -1336, -421, -1388, -448, -1431, -487, -1465, -555, -1472, -631, -1364, -972, -1702, -1091, -1754, -1119, -1796, -1159, -1977, -1391, -1998, -1422, -2016, -1475, -2060, -1953, -2109, -2095, -2206, -2242, -2230, -2249, -2254, -2246, -2288, -2210, -3039, 398, -2531, 785, -2493, 833, -2477, 869, -2467, 929, -2471, 969, -2492, 1025, -2530, 1073, -3096, 1506)
+
+[node name="Camino" type="Path2D" parent="." unique_id=41185987]
+curve = SubResource("Curve2D_dgekq")
+
+[node name="RutaAceite" parent="Camino" unique_id=401595507 node_paths=PackedStringArray("sueltaAceite") instance=ExtResource("6_opgbm")]
+position = Vector2(-1893, -2128)
+rotation = 1.369034
+sueltaAceite = NodePath("../../SueltaAceite")
+
+[node name="SueltaAceite" type="Node" parent="." unique_id=164131790]
 
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
 [connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]

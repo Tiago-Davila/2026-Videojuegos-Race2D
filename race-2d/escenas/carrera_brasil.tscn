@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dod6qbkqu31ky" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
 [ext_resource type="Texture2D" uid="uid://bkotx82k8qxaa" path="res://assets/Start.png" id="6_u3swq"]
+[ext_resource type="PackedScene" uid="uid://ck1ll80fdvucb" path="res://escenas/ruta_aceite.tscn" id="7_w5su6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -24,7 +25,7 @@ sources/1 = SubResource("TileSetAtlasSource_g102")
 
 [sub_resource type="Gradient" id="Gradient_jhv02"]
 offsets = PackedFloat32Array(0, 0.047826085, 0.9434783, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.2901961, 0.2901961, 0.2901961, 1, 0.2901961, 0.2901961, 0.2901961, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8fd86"]
 gradient = SubResource("Gradient_jhv02")
@@ -44,6 +45,12 @@ height = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
+
+[sub_resource type="Curve2D" id="Curve2D_m8m1i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2244, -199, 46.687374, 137.46838, -46.687374, -137.46838, -1524, -1578, 23.343687, 173.78079, -23.343687, -173.78079, -1827, -1901, -93.37475, 98.56224, 93.37475, -98.56224, -1646, -2292, -80.17024, 18.863586, 80.17024, -18.863586, -1060, -2433, -96.8, -22, 96.8, 22, 467, -2433, -144.30498, -102.532486, 144.30498, 102.532486, 1173, -2285, -53.164993, -125.31748, 53.164993, 125.31748, 1752, -1538, -22.23968, -222.39679, 22.23968, 222.39679, 2082, -388, 37.974995, -89.75908, -37.974995, 89.75908, 2068, 951, 96.66362, -58.688625, -96.66362, 58.688625, 1799, 1509, 148.44771, 34.52272, -148.44771, -34.52272, 1382, 1604, 103.56817, 55.236355, -103.56817, -55.236355, 908, 1305, 51.356995, 61.03251, -51.356995, -61.03251, 390, 1120, 25.270626, 54.89112, -25.270626, -54.89112, 138, 649, 45.94975, 121.14024, -45.94975, -121.14024, 218, -18, 93.61344, 96.26121, -107.87903, -42.05198, -20, -372, 97.006, -51.35611, -125.53717, 94.15288, -522, -289, 0, -122.68405, 0, 122.68405, -784, 352, 59.915466, -85.59352, -59.915466, 85.59352, -764, 991, 88.44664, -57.062347, -88.44664, 57.062347, -1249, 1435, 82.74041, -8.559353, -82.74041, 8.559353, -2069, 1651, 125.53717, 57.062347, -125.53717, -57.062347, -2628, 1530, 22.82494, 125.53717, -22.82494, -125.53717, -2823, 1032, 0, 0, 0, 0, -2244, -199)
+}
+point_count = 25
 
 [node name="CarreraBrasil" type="Node2D" unique_id=1347419899]
 
@@ -127,6 +134,16 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bordes/StaticBody2D4" unique_id=689748307]
 scale = Vector2(10.704939, -289.2837)
 shape = SubResource("RectangleShape2D_jhv02")
+
+[node name="Camino" type="Path2D" parent="." unique_id=1324928643]
+curve = SubResource("Curve2D_m8m1i")
+
+[node name="RutaAceite" parent="Camino" unique_id=401595507 node_paths=PackedStringArray("sueltaAceite") instance=ExtResource("7_w5su6")]
+position = Vector2(-2244, -199)
+rotation = -1.0175842
+sueltaAceite = NodePath("../../SueltaAceite")
+
+[node name="SueltaAceite" type="Node" parent="." unique_id=1244867543]
 
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
 [connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]

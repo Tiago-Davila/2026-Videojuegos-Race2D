@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmb5ewm2ke8su"
+path="res://.godot/imported/Cancion Menu.mp3-60e7caa01f810ade9f9b7002a551d7fd.mp3str"
+
+[deps]
+
+source_file="res://assets/Cancion Menu.mp3"
+dest_files=["res://.godot/imported/Cancion Menu.mp3-60e7caa01f810ade9f9b7002a551d7fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

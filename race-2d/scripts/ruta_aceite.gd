@@ -5,8 +5,8 @@ class_name SueltaAceite
 const MANCHA_ACEITE = preload("res://escenas/manchaAceite.tscn")
 
 @export var sueltaAceite: Node
-@export var velocidad: float = 120
-@export var margen_caida: float = 20.0
+@export var velocidad: float = 200
+@export var margen_caida: float = 100.5
 @export var tiempo_caida: Vector2 = Vector2(6, 8)
 
 @onready var temporizador: Timer = $Temporizador
