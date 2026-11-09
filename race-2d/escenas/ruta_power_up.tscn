@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://canow4o0co8xk"]
+
+[ext_resource type="Script" uid="uid://dhqpii5mqhkvr" path="res://scripts/ruta_power_up.gd" id="1_u866u"]
+[ext_resource type="Texture2D" uid="uid://ddh50hhtj7p3j" path="res://assets/poewrUp.png" id="2_2ogk0"]
+
+[node name="RutaPowerUp" type="PathFollow2D" unique_id=15392015]
+script = ExtResource("1_u866u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=689334287]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_2ogk0")
+
+[node name="Temporizador" type="Timer" parent="." unique_id=239456898]
+
+[connection signal="timeout" from="Temporizador" to="." method="_on_timer_timeout"]
