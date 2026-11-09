@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dy7vhx2e86equ" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
 [ext_resource type="Texture2D" uid="uid://dod6qbkqu31ky" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
+[ext_resource type="PackedScene" uid="uid://ck1ll80fdvucb" path="res://escenas/ruta_aceite.tscn" id="6_6n4v7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -43,6 +44,12 @@ height = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
+
+[sub_resource type="Curve2D" id="Curve2D_ng3n5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2548, -47, -150.42946, 203.75613, 150.42946, -203.75613, -4, -388, -489.8774, 37.974995, 489.8774, -37.974995, 1082, -1625, -144.30498, -113.92498, 144.30498, 113.92498, 1778, -1544, 20.368406, -68.00975, -20.368406, 68.00975, 2125, -989, 96.66362, -34.52272, -96.66362, 34.52272, 1893, -731, 120.82952, -60.414764, -120.82952, 60.414764, 1474, -715, 0, 0, 0, 0, 1417, -438, -59.915466, -25.678057, 59.915466, 25.678057, 1696, -234, -102.21744, -54.20923, 102.21744, 54.20923, 2352, -122, -7.7369347, -109.61636, 7.7369347, 109.61636, 2606, 129, 0, 0, 0, 0, 2362, 396, 0, 0, 0, 0, 1896, 543, 100.254, 20.88625, -100.254, -20.88625, 90, 728, 104.431244, -4.17725, -104.431244, 4.17725, -169, 595, 121.14024, -54.30425, -121.14024, 54.30425, -383, 706, 70.73845, 21.435892, -70.73845, -21.435892, -1612, 743, 87.88716, 2.1435893, -87.88716, -2.1435893, -1819, 625, 51.446144, -4.2871785, -51.446144, 4.2871785, -2085, 728, 136.4102, 14.172489, -136.4102, -14.172489, -3018, 898, 10.629367, 148.81114, -10.629367, -148.81114, -3380, 565, -160.81207, 90.781006, 160.81207, -90.781006, -3077, 77, 0, 0, 0, 0, -2548, -47)
+}
+point_count = 23
 
 [node name="CarreraMonaco" type="Node2D" unique_id=1347419899]
 
@@ -118,6 +125,16 @@ polygon = PackedVector2Array(-120, 2030, 2980, 2030, 2980, -2870, -120, -2870, -
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="ZonaPasto" unique_id=2096387520]
 polygon = PackedVector2Array(-2505, 147, -2956, 256, -3158, 473, -3158, 586, -2969, 668, -2441, 613, -2180, 556, -1938, 440, -1860, 419, -1799, 424, -1761, 436, -1555, 549, -1025, 578, -484, 521, -253, 410, -213, 395, -171, 389, -129, 391, -87, 402, 143, 512, 810, 452, 1716, 359, 2242, 218, 2322, 142, 2247, 70, 1710, -45, 1657, -64, 1244, -328, 1212, -353, 1176, -401, 1160, -438, 1153, -477, 1153, -517, 1162, -555, 1311, -816, 1348, -862, 1398, -896, 1456, -914, 1812, -940, 1870, -1015, 1621, -1406, 1403, -1469, 1061, -1445, 805, -1297, 508, -926, 293, -538, 191, -278, 155, -228, 122, -202, 85, -183, -295, -107, -962, -9, -1787, 86)
+
+[node name="Camino" type="Path2D" parent="." unique_id=2075686698]
+curve = SubResource("Curve2D_ng3n5")
+
+[node name="RutaAceite" parent="Camino" unique_id=401595507 node_paths=PackedStringArray("sueltaAceite") instance=ExtResource("6_6n4v7")]
+position = Vector2(-2548, -47)
+rotation = -0.057275835
+sueltaAceite = NodePath("../../SueltaAceite")
+
+[node name="SueltaAceite" type="Node" parent="." unique_id=1401268378]
 
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
 [connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]
