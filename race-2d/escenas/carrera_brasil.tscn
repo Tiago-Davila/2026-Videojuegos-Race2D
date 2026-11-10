@@ -82,6 +82,18 @@ texture = ExtResource("6_u3swq")
 position = Vector2(-2105, -524)
 rotation = -1.134464
 
+[node name="auto2" parent="." instance=ExtResource("2_5yg0m")]
+position = Vector2(-2168, -388)
+rotation = -1.134464
+
+[node name="auto3" parent="." instance=ExtResource("2_5yg0m")]
+position = Vector2(-2232, -252)
+rotation = -1.134464
+
+[node name="auto4" parent="." instance=ExtResource("2_5yg0m")]
+position = Vector2(-2295, -116)
+rotation = -1.134464
+
 [node name="ZonaPasto" type="Area2D" parent="." unique_id=1897456753]
 script = ExtResource("5_pasto")
 

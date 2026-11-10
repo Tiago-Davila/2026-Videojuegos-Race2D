@@ -86,3 +86,12 @@ rotation = 1.369034
 sueltaAceite = NodePath("../../SueltaAceite")
 
 [node name="SueltaAceite" type="Node" parent="." unique_id=1114780268]
+
+[node name="auto2" parent="." unique_id=269555807 instance=ExtResource("3_55sh6")]
+position = Vector2(-338, 125)
+
+[node name="auto3" parent="." unique_id=755602063 instance=ExtResource("3_55sh6")]
+position = Vector2(-163, 168)
+
+[node name="auto4" parent="." unique_id=1326863560 instance=ExtResource("3_55sh6")]
+position = Vector2(-252, 310)

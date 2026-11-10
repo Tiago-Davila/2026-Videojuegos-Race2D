@@ -77,6 +77,18 @@ texture = SubResource("CanvasTexture_o8dpa")
 position = Vector2(-1812, -112)
 rotation = -0.1142
 
+[node name="auto2" parent="." instance=ExtResource("2_5yg0m")]
+position = Vector2(-1961, -95)
+rotation = -0.1142
+
+[node name="auto3" parent="." instance=ExtResource("2_5yg0m")]
+position = Vector2(-2110, -78)
+rotation = -0.1142
+
+[node name="auto4" parent="." instance=ExtResource("2_5yg0m")]
+position = Vector2(-2259, -61)
+rotation = -0.1142
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=329851399]
 position = Vector2(0, -2862)
 collision_layer = 2
