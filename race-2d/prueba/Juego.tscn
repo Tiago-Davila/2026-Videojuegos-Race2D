@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://counn37k8xgr3"]
+
+[node name="Juego" type="Node2D" unique_id=1585606938]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1173731129]
+offset_right = 1153.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1969824866]
+offset_right = 160.0
+offset_bottom = 90.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=1138558679]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0

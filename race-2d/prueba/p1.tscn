@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ddcyi8hmvmaem"]
+
+[ext_resource type="Texture2D" uid="uid://bgf4j5frs7c84" path="res://assets/pink_car.png" id="1_ejj67"]
+[ext_resource type="Script" uid="uid://cxucltgjfh064" path="res://prueba/controlesDelPlayer.gd" id="2_f1ws8"]
+[ext_resource type="Script" uid="uid://br62a4l1eh6qk" path="res://prueba/jugador.gd" id="2_jug"]
+
+[sub_resource type="Resource" id="Resource_ex5dj"]
+script = ExtResource("2_f1ws8")
+metadata/_custom_type_script = "uid://cxucltgjfh064"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55gld"]
+size = Vector2(53, 31)
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1543104246]
+position = Vector2(300, 147)
+script = ExtResource("2_jug")
+controles = SubResource("Resource_ex5dj")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2041775664]
+rotation = 1.584796
+texture = ExtResource("1_ejj67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569573218]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_55gld")

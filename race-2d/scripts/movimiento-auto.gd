@@ -10,6 +10,8 @@ var friccion_pasto: float = 0.0
 @export var nitro: Node
 @export var marchas: Node
 
+@export var controles : controlesDelPlayer
+
 @export var velocidad_max: float = 2500
 @export var fuerza_volante: float = 6.0
 @export var min_fuerza_volante: float = 0.3
