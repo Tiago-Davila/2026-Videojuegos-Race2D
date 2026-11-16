@@ -12,8 +12,6 @@ const MANCHA_ACEITE = preload("res://escenas/manchaAceite.tscn")
 @onready var temporizador: Timer = $Temporizador
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	arrancar_temporizador()

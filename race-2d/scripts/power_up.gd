@@ -11,7 +11,11 @@ func _ready() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	body.get_node("Movimiento").friccion_pasto = friccion_mancha
+	body.get_node("Movimiento").show()
+	await get_tree().create_timer(
+		10
+	).timeout
+
 
 func _on_body_exited(body: Node2D) -> void:
 	body.get_node("Movimiento").friccion_pasto = 0.0

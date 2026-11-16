@@ -1,17 +1,32 @@
 extends Node
 
-@onready var area :Area2D;
+class_name PowerUpAuto
+
+@export var animacion :AnimatedSprite2D;
+@export var areaEfecto :Area2D;
 
 func _ready() -> void:
-	area = get_node("Area2D").get_child("Efecto").set
+	areaEfecto.hide()
+	areaEfecto.visibility_changed.connect(_on_efecto_visibility_changed)
+	areaEfecto.body_entered.connect(_on_efecto_body_entered)
+	_actualizar_estado_area()
 
 func _process(delta: float) -> void:
 	pass
 
+func _actualizar_estado_area() -> void:
+	var esta_visible: bool = areaEfecto.is_visible_in_tree()
+	areaEfecto.set_deferred("monitoring", esta_visible)
+	if esta_visible:
+		animacion.play("default")
+	else:
+		animacion.stop()
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_efecto_body_entered(body: Node2D) -> void:
 	body.get_node("Movimiento").friccion_pasto = body.get_node("Movimiento").friccion_pasto/3
+
+func _on_efecto_body_exited(body: Node2D) -> void:
+	body.get_node("Movimiento").friccion_pasto = 0.0
+
+func _on_efecto_visibility_changed() -> void:
+	_actualizar_estado_area()

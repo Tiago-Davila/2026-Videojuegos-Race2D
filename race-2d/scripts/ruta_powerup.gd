@@ -7,18 +7,14 @@ const POWER_UP = preload("res://escenas/power_up.tscn")
 @export var sueltaPowerUp: Node
 @export var velocidad: float = 200
 @export var margen_caida: float = 100.5
-@export var tiempo_caida: Vector2 = Vector2(6, 8)
+@export var tiempo_caida: Vector2 = Vector2(1, 3)
 
 @onready var temporizador: Timer = $Temporizador
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	arrancar_temporizador()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	progress += delta * velocidad
 
@@ -28,7 +24,7 @@ func arrancar_temporizador() -> void:
 	)
 	temporizador.start()
 
-func soltar_aceite() -> void:
+func soltar_powerup() -> void:
 	if !sueltaPowerUp: return
 	var powerUp: PowerUp = POWER_UP.instantiate()
 	sueltaPowerUp.add_child(powerUp)
@@ -39,4 +35,4 @@ func soltar_aceite() -> void:
 	arrancar_temporizador()
 
 func _on_timer_timeout() -> void:
-	soltar_aceite()
+	soltar_powerup()
