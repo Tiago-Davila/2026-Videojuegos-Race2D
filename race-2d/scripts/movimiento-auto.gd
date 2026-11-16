@@ -4,6 +4,7 @@ var acelerador: float = 0.0
 var velocidad: float = 0.0
 var volante: float = 0.0
 var friccion_pasto: float = 0.0
+var vueltas: int =0
 
 @export var cuerpo: CharacterBody2D
 @export var aceleracion: Node
@@ -31,8 +32,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	volante = Input.get_axis("izquierda", "derecha")
 	acelerador= Input.is_action_pressed("acelerar")
-	print(marchas.obtener_marcha())
-	print(velocidad)
+
 	
 
 func _physics_process(delta: float) -> void:
@@ -72,3 +72,7 @@ func rotar_volante(delta: float) -> void:
 		
 func obtener_velocidad() -> float:
 	return velocidad
+	
+func vuelta_completada() -> void:
+	vueltas += 1
+	print("Las vueltas del auto ", name, ": ", vueltas)
