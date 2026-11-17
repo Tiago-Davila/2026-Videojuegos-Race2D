@@ -11,11 +11,8 @@ func _ready() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	body.get_node("Movimiento").show()
+	body.get_node("Efecto").show()
 	await get_tree().create_timer(
 		10
 	).timeout
-
-
-func _on_body_exited(body: Node2D) -> void:
-	body.get_node("Movimiento").friccion_pasto = 0.0
+	body.get_node("Efecto").hide()

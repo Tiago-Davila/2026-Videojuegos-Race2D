@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dod6qbkqu31ky" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
 [ext_resource type="PackedScene" uid="uid://ck1ll80fdvucb" path="res://escenas/ruta_aceite.tscn" id="6_q83po"]
+[ext_resource type="PackedScene" uid="uid://canow4o0co8xk" path="res://escenas/ruta_power_up.tscn" id="7_yhhul"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -134,7 +135,14 @@ position = Vector2(1061, 712)
 rotation = 3.1185477
 sueltaAceite = NodePath("../../SueltaAceite")
 
+[node name="RutaPowerUp" parent="Camino" unique_id=15392015 node_paths=PackedStringArray("sueltaPowerUp") instance=ExtResource("7_yhhul")]
+position = Vector2(1061, 712)
+rotation = 3.1185477
+sueltaPowerUp = NodePath("../../SueltaPowerup")
+
 [node name="SueltaAceite" type="Node" parent="." unique_id=524472932]
+
+[node name="SueltaPowerup" type="Node" parent="." unique_id=951836591]
 
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
 [connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]

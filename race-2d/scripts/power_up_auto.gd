@@ -7,8 +7,6 @@ class_name PowerUpAuto
 
 func _ready() -> void:
 	areaEfecto.hide()
-	areaEfecto.visibility_changed.connect(_on_efecto_visibility_changed)
-	areaEfecto.body_entered.connect(_on_efecto_body_entered)
 	_actualizar_estado_area()
 
 func _process(delta: float) -> void:

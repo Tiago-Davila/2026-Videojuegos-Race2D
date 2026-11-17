@@ -7,7 +7,7 @@ const POWER_UP = preload("res://escenas/power_up.tscn")
 @export var sueltaPowerUp: Node
 @export var velocidad: float = 200
 @export var margen_caida: float = 100.5
-@export var tiempo_caida: Vector2 = Vector2(1, 3)
+@export var tiempo_caida: Vector2 = Vector2(10, 20)
 
 @onready var temporizador: Timer = $Temporizador
 @onready var sprite_2d: Sprite2D = $Sprite2D
