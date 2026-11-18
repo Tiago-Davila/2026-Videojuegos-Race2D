@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://de8a43xcxxeyi" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
 [ext_resource type="Texture2D" uid="uid://bkotx82k8qxaa" path="res://assets/Start.png" id="6_u3swq"]
+[ext_resource type="AudioStream" uid="uid://cl6tamw4pifbt" path="res://assets/Publico.mp3" id="9_publi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -48,6 +49,9 @@ size = Vector2(1408.6567, 178.35162)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_control"]
+size = Vector2(40, 520)
 
 [node name="CarreraBrasil" type="Node2D" unique_id=1347419899]
 script = ExtResource("1_w5su6")
@@ -153,6 +157,49 @@ collision_layer = 2
 scale = Vector2(10.704939, -289.2837)
 shape = SubResource("RectangleShape2D_jhv02")
 
+[node name="Controles" type="Node2D" parent="."]
+
+[node name="Control1" type="Area2D" parent="Controles"]
+position = Vector2(-273, -2443)
+rotation = 0.0
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control1"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control2" type="Area2D" parent="Controles"]
+position = Vector2(2076, 255)
+rotation = 1.5708
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control2"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control3" type="Area2D" parent="Controles"]
+position = Vector2(-643, -21)
+rotation = 1.9873
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control3"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control4" type="Area2D" parent="Controles"]
+position = Vector2(-2745, 1268)
+rotation = -1.8769
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control4"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Publico" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_publi")
+volume_db = -10.0
+autoplay = true
+
 [connection signal="body_entered" from="lineafin-start" to="." method="_on_lineafinstart_body_entered"]
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
 [connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]
+[connection signal="body_entered" from="Controles/Control1" to="." method="_on_control_body_entered" binds= [1]]
+[connection signal="body_entered" from="Controles/Control2" to="." method="_on_control_body_entered" binds= [2]]
+[connection signal="body_entered" from="Controles/Control3" to="." method="_on_control_body_entered" binds= [3]]
+[connection signal="body_entered" from="Controles/Control4" to="." method="_on_control_body_entered" binds= [4]]

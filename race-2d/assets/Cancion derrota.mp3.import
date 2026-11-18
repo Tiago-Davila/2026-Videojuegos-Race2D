@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjhq0c0a2n136"
+path="res://.godot/imported/Cancion derrota.mp3-45dee6b4d889bd22f7fa854800ca3a03.mp3str"
+
+[deps]
+
+source_file="res://assets/Cancion derrota.mp3"
+dest_files=["res://.godot/imported/Cancion derrota.mp3-45dee6b4d889bd22f7fa854800ca3a03.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

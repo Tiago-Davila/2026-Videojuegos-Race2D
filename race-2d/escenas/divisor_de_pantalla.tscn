@@ -1,6 +1,66 @@
 [gd_scene format=3 uid="uid://bg38h8pad7r8x"]
 
 [ext_resource type="Script" uid="uid://cw750l8hbu4xx" path="res://scripts/divisor_de_pantalla.gd" id="1_c5lya"]
+[ext_resource type="Texture2D" uid="uid://nnta336ewft" path="res://assets/semaforo.svg" id="2_semaf"]
+[ext_resource type="AudioStream" uid="uid://b2jqlonlqxr7d" path="res://assets/F1 Starting light sound.mp3" id="3_luces"]
+[ext_resource type="AudioStream" uid="uid://bevj332whhgap" path="res://assets/MotorAceleracion.mp3" id="4_motor"]
+
+[sub_resource type="Animation" id="Animation_largada"]
+resource_name = "largada"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Semaforo/Luces:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.69, 1.68, 2.69, 3.69, 4.69, 5.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Semaforo:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GridContainer/SubViewportContainer/SubViewport:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Arranque:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_largada"]
+_data = {
+&"largada": SubResource("Animation_largada")
+}
 
 [node name="DivisorDePantalla" type="Control" unique_id=312220420]
 layout_mode = 3
@@ -29,11 +89,13 @@ size_flags_vertical = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer" unique_id=1616092931]
+process_mode = 4
 handle_input_locally = false
 size = Vector2i(574, 322)
 render_target_update_mode = 4
 
 [node name="Camera2D_P1" type="Camera2D" parent="GridContainer/SubViewportContainer/SubViewport" unique_id=87570635]
+process_mode = 3
 position = Vector2(350, 150)
 zoom = Vector2(0.4, 0.4)
 
@@ -78,3 +140,31 @@ render_target_update_mode = 4
 
 [node name="Camera2D_P4" type="Camera2D" parent="GridContainer/SubViewportContainer4/SubViewport" unique_id=1599800032]
 zoom = Vector2(0.4, 0.4)
+
+[node name="Semaforo" type="Control" parent="." unique_id=904007323]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Luces" type="Sprite2D" parent="Semaforo" unique_id=1850948025]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_semaf")
+hframes = 7
+
+[node name="SonidoSemaforo" type="AudioStreamPlayer" parent="." unique_id=1370583171]
+stream = ExtResource("3_luces")
+autoplay = true
+
+[node name="Arranque" type="AudioStreamPlayer" parent="." unique_id=10747439]
+stream = ExtResource("4_motor")
+volume_db = -6.0
+
+[node name="AnimacionLargada" type="AnimationPlayer" parent="." unique_id=21591474]
+libraries/ = SubResource("AnimationLibrary_largada")
+autoplay = &"largada"
