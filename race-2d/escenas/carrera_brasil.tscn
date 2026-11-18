@@ -8,6 +8,11 @@
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
 [ext_resource type="Texture2D" uid="uid://bkotx82k8qxaa" path="res://assets/Start.png" id="6_u3swq"]
 [ext_resource type="AudioStream" uid="uid://cl6tamw4pifbt" path="res://assets/Publico.mp3" id="9_publi"]
+[ext_resource type="AudioStream" uid="uid://bevj332whhgap" path="res://assets/MotorAceleracion.mp3" id="14_motor"]
+[ext_resource type="Texture2D" uid="uid://bvsh8yyuxuwi5" path="res://assets/pink_car.png" id="10_pink"]
+[ext_resource type="Texture2D" uid="uid://bqewsju3o8ww0" path="res://assets/white_car.png" id="11_white"]
+[ext_resource type="Texture2D" uid="uid://2qrf2atmay6r" path="res://assets/red_car.png" id="12_red"]
+[ext_resource type="Texture2D" uid="uid://cjawq5vqc5s6p" path="res://assets/gray_car.png" id="13_gray"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -96,20 +101,32 @@ scale = Vector2(1, 0.9999999)
 shape = SubResource("RectangleShape2D_o8dpa")
 
 [node name="auto" parent="." unique_id=329217169 instance=ExtResource("2_5yg0m")]
-position = Vector2(-2105, -524)
+position = Vector2(-2213.8, -574.7)
 rotation = -1.134464
+
+[node name="GrayCar" parent="auto" index="0"]
+texture = ExtResource("10_pink")
 
 [node name="auto2" parent="." unique_id=1100952637 instance=ExtResource("2_5yg0m")]
-position = Vector2(-2168, -388)
+position = Vector2(-2141.3, -540.9)
 rotation = -1.134464
+
+[node name="GrayCar" parent="auto2" index="0"]
+texture = ExtResource("11_white")
 
 [node name="auto3" parent="." unique_id=1949120375 instance=ExtResource("2_5yg0m")]
-position = Vector2(-2232, -252)
+position = Vector2(-2068.7, -507.1)
 rotation = -1.134464
 
+[node name="GrayCar" parent="auto3" index="0"]
+texture = ExtResource("12_red")
+
 [node name="auto4" parent="." unique_id=328645459 instance=ExtResource("2_5yg0m")]
-position = Vector2(-2295, -116)
+position = Vector2(-1996.2, -473.3)
 rotation = -1.134464
+
+[node name="GrayCar" parent="auto4" index="0"]
+texture = ExtResource("13_gray")
 
 [node name="ZonaPasto" type="Area2D" parent="." unique_id=1897456753]
 script = ExtResource("5_pasto")
@@ -196,6 +213,12 @@ stream = ExtResource("9_publi")
 volume_db = -10.0
 autoplay = true
 
+[node name="Motor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_motor")
+volume_db = -18.0
+autoplay = true
+
+[connection signal="finished" from="Motor" to="Motor" method="play"]
 [connection signal="body_entered" from="lineafin-start" to="." method="_on_lineafinstart_body_entered"]
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
 [connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]

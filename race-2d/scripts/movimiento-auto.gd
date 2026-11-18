@@ -89,3 +89,4 @@ func vuelta_completada(controles: int) -> void:
 	print("Las vueltas del auto ", cuerpo.name, ": ", vueltas)
 	if vueltas == vueltas_totales:
 		cuerpo.process_mode = Node.PROCESS_MODE_DISABLED
+		cuerpo.get_parent().llegar(cuerpo)
