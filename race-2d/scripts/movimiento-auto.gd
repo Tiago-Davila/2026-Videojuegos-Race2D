@@ -5,6 +5,9 @@ var velocidad: float = 0.0
 var volante: float = 0.0
 var friccion_pasto: float = 0.0
 var vueltas: int =0
+var control: int = 0
+
+@export var vueltas_totales: int = 3
 
 @export var cuerpo: CharacterBody2D
 @export var aceleracion: Node
@@ -73,6 +76,17 @@ func rotar_volante(delta: float) -> void:
 func obtener_velocidad() -> float:
 	return velocidad
 	
-func vuelta_completada() -> void:
+func pasar_control(numero: int) -> void:
+	if numero == control + 1:
+		control = numero
+
+
+func vuelta_completada(controles: int) -> void:
+	if control != controles:
+		return
+	control = 0
 	vueltas += 1
-	print("Las vueltas del auto ", name, ": ", vueltas)
+	print("Las vueltas del auto ", cuerpo.name, ": ", vueltas)
+	if vueltas == vueltas_totales:
+		cuerpo.process_mode = Node.PROCESS_MODE_DISABLED
+		cuerpo.get_parent().llegar(cuerpo)

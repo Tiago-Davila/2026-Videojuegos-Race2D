@@ -1,0 +1,50 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/pausa.gd" id="1_pausa"]
+[ext_resource type="PackedScene" uid="uid://cmas0rbfdvquo" path="res://escenas/menu.tscn" id="2_menu"]
+
+[node name="Pausa" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+visible = false
+script = ExtResource("1_pausa")
+menu = ExtResource("2_menu")
+
+[node name="Fondo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Centro" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Botones" type="VBoxContainer" parent="Centro"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Continuar" type="Button" parent="Centro/Botones"]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 2
+text = "Continuar la carrera"
+
+[node name="Reiniciar" type="Button" parent="Centro/Botones"]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 2
+text = "Reiniciar carrera"
+
+[node name="Salir" type="Button" parent="Centro/Botones"]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 2
+text = "Salir al menú"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Centro/Botones/Continuar" to="." method="hide"]
+[connection signal="pressed" from="Centro/Botones/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Centro/Botones/Salir" to="." method="_on_salir_pressed"]

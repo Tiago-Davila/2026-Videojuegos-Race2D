@@ -1,17 +1,23 @@
 extends Node2D
 
+@export var controles: int = 4
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var tiempo: float = 0.0
+var llegadas: int = 0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	tiempo += delta
+
+
+func llegar(auto: Node) -> void:
+	llegadas += 1
+	auto.get_node("HUD").mostrar_llegada(llegadas, tiempo)
+
+
+func _on_control_body_entered(body: Node2D, numero: int) -> void:
+	body.get_node("Movimiento").pasar_control(numero)
 
 
 func _on_lineafinstart_body_entered(body: Node2D) -> void:
-	for hijo in body.get_children():
-		if hijo.has_method("vuelta_completada"):
-			hijo.vuelta_completada()# Replace with function body.
+	body.get_node("Movimiento").vuelta_completada(controles)

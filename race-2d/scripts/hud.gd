@@ -4,6 +4,14 @@ extends CanvasLayer
 @export var marchas: Node
 @export var marcha: Sprite2D
 @export var velocidad: Label
+@export var llegada: Label
+@export var tiempo: Label
+
+
+func mostrar_llegada(lugar: int, segundos: float) -> void:
+	llegada.text = "¡Saliste %s! ¡Felicidades!" % ["primero", "segundo", "tercero", "cuarto"][lugar - 1]
+	tiempo.text = "Tiempo: %02d:%05.2f" % [floori(segundos / 60.0), fmod(segundos, 60.0)]
+	llegada.show()
 
 
 func _process(_delta: float) -> void:

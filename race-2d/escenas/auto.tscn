@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://prnvf1arwh6f" path="res://scripts/hud.gd" id="6_hud"]
 [ext_resource type="Texture2D" uid="uid://uaqxwiw1chs8" path="res://assets/tablero.svg" id="7_tablero"]
 [ext_resource type="Texture2D" uid="uid://c03xpl50rpfe7" path="res://assets/digitos.svg" id="8_digitos"]
+[ext_resource type="Texture2D" uid="uid://b8eckqa4dm7sm" path="res://assets/fuego_turbo.svg" id="9_fuego"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0uws"]
 size = Vector2(58, 32)
@@ -27,8 +28,9 @@ shape = SubResource("RectangleShape2D_r0uws")
 [node name="Aceleracion" type="Node" parent="." unique_id=1071309218]
 script = ExtResource("2_acele")
 
-[node name="Nitro" type="Node" parent="." unique_id=1265421467]
+[node name="Nitro" type="Node" parent="." unique_id=1265421467 node_paths=PackedStringArray("fuego")]
 script = ExtResource("3_nitro")
+fuego = NodePath("../Fuego")
 
 [node name="Movimiento" type="Node" parent="." unique_id=1417817607 node_paths=PackedStringArray("cuerpo", "aceleracion", "nitro", "marchas")]
 script = ExtResource("1_j252b")
@@ -41,12 +43,14 @@ marchas = NodePath("../Marcha")
 script = ExtResource("5_0wprh")
 aceleracion = NodePath("../Aceleracion")
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1096684590 node_paths=PackedStringArray("movimiento", "marchas", "marcha", "velocidad")]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1096684590 node_paths=PackedStringArray("movimiento", "marchas", "marcha", "velocidad", "llegada", "tiempo")]
 script = ExtResource("6_hud")
 movimiento = NodePath("../Movimiento")
 marchas = NodePath("../Marcha")
 marcha = NodePath("Tablero/Marcha")
 velocidad = NodePath("Tablero/Velocidad")
+llegada = NodePath("Llegada")
+tiempo = NodePath("Llegada/Tiempo")
 
 [node name="Tablero" type="Node2D" parent="HUD" unique_id=1434457080]
 position = Vector2(787, 446)
@@ -72,3 +76,31 @@ theme_override_font_sizes/font_size = 80
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="Llegada" type="Label" parent="HUD" unique_id=2065823929]
+visible = false
+offset_left = 176.0
+offset_top = 180.0
+offset_right = 976.0
+offset_bottom = 260.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 1
+
+[node name="Tiempo" type="Label" parent="HUD/Llegada" unique_id=786112766]
+layout_mode = 0
+offset_top = 90.0
+offset_right = 800.0
+offset_bottom = 150.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 44
+horizontal_alignment = 1
+
+[node name="Fuego" type="Sprite2D" parent="." unique_id=409672697]
+visible = false
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-48, 0)
+texture = ExtResource("9_fuego")

@@ -9,6 +9,7 @@ var tiempo_recarga: float = 10.0
 @export var velocidad_min: float = 300
 @export var duracion: float = 2.0
 @export var recarga: float = 5.0
+@export var fuego: Sprite2D
 
 
 func actualizar(delta: float, velocidad: float) -> void:
@@ -18,6 +19,7 @@ func actualizar(delta: float, velocidad: float) -> void:
 		tiempo_activo = duracion
 		tiempo_recarga = duracion + recarga
 	aceleracion_extra = tiempo_activo > 0.0
+	fuego.visible = aceleracion_extra
 
 
 func obtener_aceleracion() -> float:
