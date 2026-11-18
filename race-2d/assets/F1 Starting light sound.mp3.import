@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dabnsaheyqhrh"
+path="res://.godot/imported/F1 Starting light sound.mp3-b719d7ac142bbb4602f4e3b243dc9202.mp3str"
+
+[deps]
+
+source_file="res://assets/F1 Starting light sound.mp3"
+dest_files=["res://.godot/imported/F1 Starting light sound.mp3-b719d7ac142bbb4602f4e3b243dc9202.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
