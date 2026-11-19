@@ -12,7 +12,7 @@ var vueltas: int =0
 @export var marchas: Node
 
 @export var controles : controlesDelPlayer
-
+@export_range(0, 3) var player_index: int = 0
 @export var velocidad_max: float = 2500
 @export var fuerza_volante: float = 6.0
 @export var min_fuerza_volante: float = 0.3
