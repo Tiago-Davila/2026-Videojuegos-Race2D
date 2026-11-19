@@ -31,18 +31,11 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	volante = Input.get_axis("izquierda", "derecha")
-	acelerador= Input.is_action_pressed("acelerar")
-
-	
-
 func _physics_process(delta: float) -> void:
-	volante = Input.get_axis("izquierda", "derecha")
-	acelerador = Input.get_action_strength("acelerar")
-	nitro.actualizar(delta, velocidad)
-	marchas.actualizar(delta, acelerador)
+	volante = Input.get_axis(controles.movIzq, controles.movDer)
+	acelerador = Input.get_action_strength(controles.aceler)
+	nitro.actualizar(delta, velocidad, Input.is_action_just_pressed(controles.nitro))
+	marchas.actualizar(delta, acelerador, Input.is_action_just_pressed(controles.subirMarcha), Input.is_action_just_pressed(controles.bajarMarcha))
 	aplicar_aceleracion(delta)
 	rotar_volante(delta)
 	cuerpo.velocity = cuerpo.transform.x * velocidad

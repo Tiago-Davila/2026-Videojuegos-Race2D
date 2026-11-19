@@ -3,16 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
 [ext_resource type="Script" uid="uid://cvskee17q4le3" path="res://scripts/carrera.gd" id="1_w5su6"]
 [ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
-[ext_resource type="Texture2D" uid="uid://dy7vhx2e86equ" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
+[ext_resource type="Texture2D" uid="uid://bte422k3gqks1" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
 [ext_resource type="Texture2D" uid="uid://de8a43xcxxeyi" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
-[ext_resource type="Texture2D" uid="uid://bkotx82k8qxaa" path="res://assets/Start.png" id="6_u3swq"]
+[ext_resource type="Texture2D" uid="uid://cyr2ekeeoskmp" path="res://assets/Start.png" id="6_u3swq"]
 [ext_resource type="AudioStream" uid="uid://cl6tamw4pifbt" path="res://assets/Publico.mp3" id="9_publi"]
 [ext_resource type="AudioStream" uid="uid://bevj332whhgap" path="res://assets/MotorAceleracion.mp3" id="14_motor"]
 [ext_resource type="Texture2D" uid="uid://bvsh8yyuxuwi5" path="res://assets/pink_car.png" id="10_pink"]
 [ext_resource type="Texture2D" uid="uid://bqewsju3o8ww0" path="res://assets/white_car.png" id="11_white"]
 [ext_resource type="Texture2D" uid="uid://2qrf2atmay6r" path="res://assets/red_car.png" id="12_red"]
 [ext_resource type="Texture2D" uid="uid://cjawq5vqc5s6p" path="res://assets/gray_car.png" id="13_gray"]
+[ext_resource type="Resource" path="res://controles/jugador2.tres" id="16_ctrl2"]
+[ext_resource type="Resource" path="res://controles/jugador3.tres" id="17_ctrl3"]
+[ext_resource type="Resource" path="res://controles/jugador4.tres" id="18_ctrl4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -114,6 +117,9 @@ rotation = -1.134464
 [node name="GrayCar" parent="auto2" index="0"]
 texture = ExtResource("11_white")
 
+[node name="Movimiento" parent="auto2" index="4"]
+controles = ExtResource("16_ctrl2")
+
 [node name="auto3" parent="." unique_id=1949120375 instance=ExtResource("2_5yg0m")]
 position = Vector2(-2068.7, -507.1)
 rotation = -1.134464
@@ -121,12 +127,18 @@ rotation = -1.134464
 [node name="GrayCar" parent="auto3" index="0"]
 texture = ExtResource("12_red")
 
+[node name="Movimiento" parent="auto3" index="4"]
+controles = ExtResource("17_ctrl3")
+
 [node name="auto4" parent="." unique_id=328645459 instance=ExtResource("2_5yg0m")]
 position = Vector2(-1996.2, -473.3)
 rotation = -1.134464
 
 [node name="GrayCar" parent="auto4" index="0"]
 texture = ExtResource("13_gray")
+
+[node name="Movimiento" parent="auto4" index="4"]
+controles = ExtResource("18_ctrl4")
 
 [node name="ZonaPasto" type="Area2D" parent="." unique_id=1897456753]
 script = ExtResource("5_pasto")
@@ -174,51 +186,49 @@ collision_layer = 2
 scale = Vector2(10.704939, -289.2837)
 shape = SubResource("RectangleShape2D_jhv02")
 
-[node name="Controles" type="Node2D" parent="."]
+[node name="Controles" type="Node2D" parent="." unique_id=1249207345]
 
-[node name="Control1" type="Area2D" parent="Controles"]
+[node name="Control1" type="Area2D" parent="Controles" unique_id=330725260]
 position = Vector2(-273, -2443)
-rotation = 0.0
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control1" unique_id=1429755172]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Control2" type="Area2D" parent="Controles"]
+[node name="Control2" type="Area2D" parent="Controles" unique_id=1098223303]
 position = Vector2(2076, 255)
 rotation = 1.5708
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control2" unique_id=1571384641]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Control3" type="Area2D" parent="Controles"]
+[node name="Control3" type="Area2D" parent="Controles" unique_id=84298991]
 position = Vector2(-643, -21)
 rotation = 1.9873
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control3" unique_id=1198148625]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Control4" type="Area2D" parent="Controles"]
+[node name="Control4" type="Area2D" parent="Controles" unique_id=1172415617]
 position = Vector2(-2745, 1268)
 rotation = -1.8769
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control4" unique_id=40508090]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Publico" type="AudioStreamPlayer" parent="."]
+[node name="Publico" type="AudioStreamPlayer" parent="." unique_id=937975352]
 stream = ExtResource("9_publi")
 volume_db = -10.0
 autoplay = true
 
-[node name="Motor" type="AudioStreamPlayer" parent="."]
+[node name="Motor" type="AudioStreamPlayer" parent="." unique_id=1311410591]
 stream = ExtResource("14_motor")
 volume_db = -18.0
 autoplay = true
 
-[connection signal="finished" from="Motor" to="Motor" method="play"]
 [connection signal="body_entered" from="lineafin-start" to="." method="_on_lineafinstart_body_entered"]
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
 [connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]
@@ -226,3 +236,9 @@ autoplay = true
 [connection signal="body_entered" from="Controles/Control2" to="." method="_on_control_body_entered" binds= [2]]
 [connection signal="body_entered" from="Controles/Control3" to="." method="_on_control_body_entered" binds= [3]]
 [connection signal="body_entered" from="Controles/Control4" to="." method="_on_control_body_entered" binds= [4]]
+[connection signal="finished" from="Motor" to="Motor" method="play"]
+
+[editable path="auto"]
+[editable path="auto2"]
+[editable path="auto3"]
+[editable path="auto4"]

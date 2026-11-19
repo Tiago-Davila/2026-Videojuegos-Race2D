@@ -6,6 +6,12 @@ var tiempo: float = 0.0
 var llegadas: int = 0
 
 
+func _ready() -> void:
+	## para sacar los autos que sobran
+	for auto in get_tree().get_nodes_in_group("autos").slice(Juego.jugadores):
+		auto.queue_free()
+
+
 func _process(delta: float) -> void:
 	tiempo += delta
 
