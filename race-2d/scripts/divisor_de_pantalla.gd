@@ -4,16 +4,16 @@ extends Control
 var carrera: Node2D = load(Juego.escena).instantiate()
 
 # estso son los subviewport que dan interfaz al usuario y lo dividimos en las 4 pantllas
-@onready var viewPortP1: SubViewport = $GridContainer/SubViewportContainer/SubViewport
-@onready var viewPortP2: SubViewport = $GridContainer/SubViewportContainer2/SubViewport
-@onready var viewPortP3: SubViewport = $GridContainer/SubViewportContainer3/SubViewport
-@onready var viewPortP4: SubViewport = $GridContainer/SubViewportContainer4/SubViewport
+@onready var viewPortP1: SubViewport = $GridContainer/Fila1/SubViewportContainer/SubViewport
+@onready var viewPortP2: SubViewport = $GridContainer/Fila1/SubViewportContainer2/SubViewport
+@onready var viewPortP3: SubViewport = $GridContainer/Fila2/SubViewportContainer3/SubViewport
+@onready var viewPortP4: SubViewport = $GridContainer/Fila2/SubViewportContainer4/SubViewport
 
 # ponemos en variable cada camara de los distintos players
-@onready var camaraP1: Camera2D = $GridContainer/SubViewportContainer/SubViewport/Camera2D_P1
-@onready var camaraP2: Camera2D = $GridContainer/SubViewportContainer2/SubViewport/Camera2D_P2
-@onready var camaraP3: Camera2D = $GridContainer/SubViewportContainer3/SubViewport/Camera2D_P3
-@onready var camaraP4: Camera2D = $GridContainer/SubViewportContainer4/SubViewport/Camera2D_P4
+@onready var camaraP1: Camera2D = $GridContainer/Fila1/SubViewportContainer/SubViewport/Camera2D_P1
+@onready var camaraP2: Camera2D = $GridContainer/Fila1/SubViewportContainer2/SubViewport/Camera2D_P2
+@onready var camaraP3: Camera2D = $GridContainer/Fila2/SubViewportContainer3/SubViewport/Camera2D_P3
+@onready var camaraP4: Camera2D = $GridContainer/Fila2/SubViewportContainer4/SubViewport/Camera2D_P4
 
 # ponemos en variable los autos
 @onready var autoP1: CharacterBody2D = carrera.get_node("auto")
@@ -41,9 +41,10 @@ func _ready() -> void:
 	autoP2.get_node("HUD").scale = Vector2(0.5, 0.5)
 	autoP3.get_node("HUD").scale = Vector2(0.5, 0.5)
 	autoP4.get_node("HUD").scale = Vector2(0.5, 0.5)
-	$GridContainer/SubViewportContainer2.visible = Juego.jugadores >= 2
-	$GridContainer/SubViewportContainer3.visible = Juego.jugadores >= 3
-	$GridContainer/SubViewportContainer4.visible = Juego.jugadores >= 4
+	$GridContainer/Fila1/SubViewportContainer2.visible = Juego.jugadores >= 2
+	$GridContainer/Fila2.visible = Juego.jugadores >= 3
+	$GridContainer/Fila2/SubViewportContainer3.visible = Juego.jugadores >= 3
+	$GridContainer/Fila2/SubViewportContainer4.visible = Juego.jugadores >= 4
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

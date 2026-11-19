@@ -11,70 +11,78 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c5lya")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=1378565661]
+[node name="GridContainer" type="VBoxContainer" parent="." unique_id=1819341968]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 4
-columns = 2
+theme_override_constants/separation = 0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer" unique_id=2048549747]
+[node name="Fila1" type="HBoxContainer" parent="GridContainer" unique_id=1507826905]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer/Fila1" unique_id=2048549747]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer" unique_id=1616092931]
+[node name="SubViewport" type="SubViewport" parent="GridContainer/Fila1/SubViewportContainer" unique_id=1616092931]
 handle_input_locally = false
-size = Vector2i(574, 322)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
-[node name="Camera2D_P1" type="Camera2D" parent="GridContainer/SubViewportContainer/SubViewport" unique_id=87570635]
+[node name="Camera2D_P1" type="Camera2D" parent="GridContainer/Fila1/SubViewportContainer/SubViewport" unique_id=87570635]
 position = Vector2(350, 150)
 zoom = Vector2(0.4, 0.4)
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer" unique_id=30638422]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer/Fila1" unique_id=30638422]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer2" unique_id=703119385]
+[node name="SubViewport" type="SubViewport" parent="GridContainer/Fila1/SubViewportContainer2" unique_id=703119385]
 handle_input_locally = false
-size = Vector2i(574, 322)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
-[node name="Camera2D_P2" type="Camera2D" parent="GridContainer/SubViewportContainer2/SubViewport" unique_id=384235913]
+[node name="Camera2D_P2" type="Camera2D" parent="GridContainer/Fila1/SubViewportContainer2/SubViewport" unique_id=384235913]
 zoom = Vector2(0.4, 0.4)
 
-[node name="SubViewportContainer3" type="SubViewportContainer" parent="GridContainer" unique_id=531141336]
+[node name="Fila2" type="HBoxContainer" parent="GridContainer" unique_id=2020130206]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="GridContainer/Fila2" unique_id=531141336]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer3" unique_id=892642527]
+[node name="SubViewport" type="SubViewport" parent="GridContainer/Fila2/SubViewportContainer3" unique_id=892642527]
 handle_input_locally = false
-size = Vector2i(574, 322)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
-[node name="Camera2D_P3" type="Camera2D" parent="GridContainer/SubViewportContainer3/SubViewport" unique_id=1821841828]
+[node name="Camera2D_P3" type="Camera2D" parent="GridContainer/Fila2/SubViewportContainer3/SubViewport" unique_id=1821841828]
 zoom = Vector2(0.4, 0.4)
 
-[node name="SubViewportContainer4" type="SubViewportContainer" parent="GridContainer" unique_id=2143109835]
+[node name="SubViewportContainer4" type="SubViewportContainer" parent="GridContainer/Fila2" unique_id=2143109835]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer4" unique_id=728201786]
+[node name="SubViewport" type="SubViewport" parent="GridContainer/Fila2/SubViewportContainer4" unique_id=728201786]
 handle_input_locally = false
-size = Vector2i(574, 322)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
-[node name="Camera2D_P4" type="Camera2D" parent="GridContainer/SubViewportContainer4/SubViewport" unique_id=1599800032]
+[node name="Camera2D_P4" type="Camera2D" parent="GridContainer/Fila2/SubViewportContainer4/SubViewport" unique_id=1599800032]
 zoom = Vector2(0.4, 0.4)

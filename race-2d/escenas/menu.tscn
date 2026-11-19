@@ -48,7 +48,6 @@ button_group = SubResource("ButtonGroup_jugadores")
 icon = ExtResource("7_j1")
 expand_icon = true
 script = ExtResource("11_bj")
-cantidad = 1
 
 [node name="Jugadores2" type="Button" parent="Jugadores" unique_id=768605938]
 custom_minimum_size = Vector2(250, 62)
