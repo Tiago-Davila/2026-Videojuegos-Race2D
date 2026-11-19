@@ -2,7 +2,7 @@ extends Area2D
 
 class_name ManchaAceite
 
-@export var friccion_mancha = 2.5
+@export var friccion_mancha = 6.7
 
 func _ready() -> void:
 	await get_tree().create_timer(

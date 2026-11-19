@@ -1,21 +1,103 @@
 [gd_scene format=3 uid="uid://c67cea6qjystb"]
 
 [ext_resource type="Texture2D" uid="uid://cjawq5vqc5s6p" path="res://assets/gray_car.png" id="1_0kxqx"]
+[ext_resource type="Texture2D" uid="uid://cwhec6k0uf6j7" path="res://assets/shield_ice.png" id="1_2ah75"]
 [ext_resource type="Script" uid="uid://2x3lf0sntm46" path="res://scripts/movimiento-auto.gd" id="1_j252b"]
 [ext_resource type="Script" uid="uid://buq8hf1mlnb0j" path="res://scripts/aceleracion-auto.gd" id="2_acele"]
 [ext_resource type="Script" uid="uid://dxbhxfojg3qwe" path="res://scripts/nitro-auto.gd" id="3_nitro"]
 [ext_resource type="Script" uid="uid://cpoq5j6xw5ew5" path="res://scripts/marchas.gd" id="5_0wprh"]
 [ext_resource type="Script" uid="uid://prnvf1arwh6f" path="res://scripts/hud.gd" id="6_hud"]
+[ext_resource type="Script" uid="uid://kaybybgixni6" path="res://scripts/power_up_auto.gd" id="7_7hx5f"]
 [ext_resource type="Texture2D" uid="uid://uaqxwiw1chs8" path="res://assets/tablero.svg" id="7_tablero"]
 [ext_resource type="Texture2D" uid="uid://c03xpl50rpfe7" path="res://assets/digitos.svg" id="8_digitos"]
-[ext_resource type="Texture2D" uid="uid://b8eckqa4dm7sm" path="res://assets/fuego_turbo.svg" id="9_fuego"]
 [ext_resource type="Resource" path="res://controles/jugador1.tres" id="10_ctrl"]
+[ext_resource type="Texture2D" uid="uid://cqwopcmatif18" path="res://assets/fuego_turbo.svg" id="9_fuego"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlhhn"]
+radius = 136.01471
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hx5f"]
+atlas = ExtResource("1_2ah75")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxpef"]
+atlas = ExtResource("1_2ah75")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_564sp"]
+atlas = ExtResource("1_2ah75")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv446"]
+atlas = ExtResource("1_2ah75")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yopqm"]
+atlas = ExtResource("1_2ah75")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y73ro"]
+atlas = ExtResource("1_2ah75")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bb2f"]
+atlas = ExtResource("1_2ah75")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2vkc"]
+atlas = ExtResource("1_2ah75")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vikeg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hx5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxpef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_564sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv446")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yopqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y73ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bb2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2vkc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 9.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0uws"]
 size = Vector2(58, 32)
 
 [node name="auto" type="CharacterBody2D" unique_id=329217169 groups=["autos"]]
 collision_mask = 3
+
+[node name="Efecto" type="Area2D" parent="." unique_id=1772049449]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Efecto" unique_id=561636884]
+shape = SubResource("CircleShape2D_mlhhn")
+
+[node name="Animacion" type="AnimatedSprite2D" parent="Efecto" unique_id=1417379688]
+texture_filter = 1
+position = Vector2(5.9604645e-08, 1.1920929e-07)
+scale = Vector2(5.7, 5.7)
+sprite_frames = SubResource("SpriteFrames_vikeg")
+frame_progress = 0.8277264
 
 [node name="GrayCar" type="Sprite2D" parent="." unique_id=317098257]
 texture_filter = 1
@@ -44,6 +126,11 @@ controles = ExtResource("10_ctrl")
 [node name="Marcha" type="Node" parent="." unique_id=318074638 node_paths=PackedStringArray("aceleracion")]
 script = ExtResource("5_0wprh")
 aceleracion = NodePath("../Aceleracion")
+
+[node name="PowerUp" type="Node" parent="." unique_id=148140171 node_paths=PackedStringArray("animacion", "areaEfecto")]
+script = ExtResource("7_7hx5f")
+animacion = NodePath("../Efecto/Animacion")
+areaEfecto = NodePath("../Efecto")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1096684590 node_paths=PackedStringArray("movimiento", "marchas", "marcha", "velocidad", "llegada", "tiempo")]
 script = ExtResource("6_hud")
@@ -79,6 +166,10 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[connection signal="body_entered" from="Efecto" to="PowerUp" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Efecto" to="PowerUp" method="_on_efecto_body_entered"]
+[connection signal="body_exited" from="Efecto" to="PowerUp" method="_on_efecto_body_exited"]
+[connection signal="visibility_changed" from="Efecto" to="PowerUp" method="_on_efecto_visibility_changed"]
 [node name="Llegada" type="Label" parent="HUD" unique_id=2065823929]
 visible = false
 offset_left = 176.0
