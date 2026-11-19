@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="controlesDelPlayer" format=3]
+
+[ext_resource type="Script" uid="uid://cxucltgjfh064" path="res://prueba/controlesDelPlayer.gd" id="1_ctrl"]
+
+[resource]
+script = ExtResource("1_ctrl")
+player_index = 3
+movIzq = "izquierdaP4"
+movDer = "derechaP4"
+aceler = "acelerarP4"
+desaceler = "desacelerarP4"
+nitro = "nitroP4"
+subirMarcha = "subir_marchaP4"
+bajarMarcha = "bajar_marchaP4"

@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://bqewsju3o8ww0" path="res://assets/white_car.png" id="11_white"]
 [ext_resource type="Texture2D" uid="uid://2qrf2atmay6r" path="res://assets/red_car.png" id="12_red"]
 [ext_resource type="Texture2D" uid="uid://cjawq5vqc5s6p" path="res://assets/gray_car.png" id="13_gray"]
+[ext_resource type="Resource" path="res://controles/jugador2.tres" id="16_ctrl2"]
+[ext_resource type="Resource" path="res://controles/jugador3.tres" id="17_ctrl3"]
+[ext_resource type="Resource" path="res://controles/jugador4.tres" id="18_ctrl4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -121,6 +124,9 @@ rotation = -0.0069
 [node name="GrayCar" parent="auto2" index="0"]
 texture = ExtResource("11_white")
 
+[node name="Movimiento" parent="auto2" index="4"]
+controles = ExtResource("16_ctrl2")
+
 [node name="auto3" parent="." instance=ExtResource("2_5yg0m")]
 position = Vector2(-1696.4, 1735.4)
 rotation = -0.0069
@@ -128,12 +134,18 @@ rotation = -0.0069
 [node name="GrayCar" parent="auto3" index="0"]
 texture = ExtResource("12_red")
 
+[node name="Movimiento" parent="auto3" index="4"]
+controles = ExtResource("17_ctrl3")
+
 [node name="auto4" parent="." instance=ExtResource("2_5yg0m")]
 position = Vector2(-1695.8, 1815.4)
 rotation = -0.0069
 
 [node name="GrayCar" parent="auto4" index="0"]
 texture = ExtResource("13_gray")
+
+[node name="Movimiento" parent="auto4" index="4"]
+controles = ExtResource("18_ctrl4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=329851399]
 position = Vector2(0, -2862)
@@ -251,3 +263,8 @@ autoplay = true
 [connection signal="body_entered" from="Controles/Control2" to="." method="_on_control_body_entered" binds= [2]]
 [connection signal="body_entered" from="Controles/Control3" to="." method="_on_control_body_entered" binds= [3]]
 [connection signal="body_entered" from="Controles/Control4" to="." method="_on_control_body_entered" binds= [4]]
+
+[editable path="auto"]
+[editable path="auto2"]
+[editable path="auto3"]
+[editable path="auto4"]

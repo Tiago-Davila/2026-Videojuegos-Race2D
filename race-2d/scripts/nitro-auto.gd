@@ -12,10 +12,10 @@ var tiempo_recarga: float = 10.0
 @export var fuego: Sprite2D
 
 
-func actualizar(delta: float, velocidad: float) -> void:
+func actualizar(delta: float, velocidad: float, activar: bool) -> void:
 	tiempo_activo = maxf(tiempo_activo - delta, 0.0)
 	tiempo_recarga = maxf(tiempo_recarga - delta, 0.0)
-	if Input.is_action_just_pressed("nitro") and tiempo_recarga == 0.0 and velocidad > velocidad_min:
+	if activar and tiempo_recarga == 0.0 and velocidad > velocidad_min:
 		tiempo_activo = duracion
 		tiempo_recarga = duracion + recarga
 	aceleracion_extra = tiempo_activo > 0.0
