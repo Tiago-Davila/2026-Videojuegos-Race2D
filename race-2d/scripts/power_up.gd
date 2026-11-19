@@ -2,7 +2,6 @@ extends Area2D
 
 class_name PowerUp
 
-@export var friccion_mancha = 6.7
 
 func _ready() -> void:
 	await get_tree().create_timer(
@@ -12,6 +11,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	body.get_node("Efecto").show()
+	queue_free()
 	await get_tree().create_timer(
 		10
 	).timeout

@@ -4,6 +4,8 @@ class_name PowerUpAuto
 
 @export var animacion :AnimatedSprite2D;
 @export var areaEfecto :Area2D;
+@export var friccion_area = 6.7
+
 
 func _ready() -> void:
 	areaEfecto.hide()
@@ -21,7 +23,7 @@ func _actualizar_estado_area() -> void:
 		animacion.stop()
 
 func _on_efecto_body_entered(body: Node2D) -> void:
-	body.get_node("Movimiento").friccion_pasto = body.get_node("Movimiento").friccion_pasto/3
+	body.get_node("Movimiento").friccion_pasto = friccion_area
 
 func _on_efecto_body_exited(body: Node2D) -> void:
 	body.get_node("Movimiento").friccion_pasto = 0.0
