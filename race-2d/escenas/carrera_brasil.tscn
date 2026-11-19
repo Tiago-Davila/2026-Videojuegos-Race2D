@@ -1,13 +1,20 @@
 [gd_scene format=4 uid="uid://cnkhwyr3nlgqw"]
 
 [ext_resource type="PackedScene" uid="uid://juwn5ttmy7da" path="res://escenas/pistaReutilizable.tscn" id="1_jhv02"]
+[ext_resource type="Script" uid="uid://cvskee17q4le3" path="res://scripts/carrera.gd" id="1_w5su6"]
 [ext_resource type="PackedScene" uid="uid://c67cea6qjystb" path="res://escenas/auto.tscn" id="2_5yg0m"]
 [ext_resource type="Texture2D" uid="uid://dy7vhx2e86equ" path="res://assets/grass_real_s101_seamless.png" id="3_g101"]
-[ext_resource type="Texture2D" uid="uid://dod6qbkqu31ky" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
+[ext_resource type="Texture2D" uid="uid://de8a43xcxxeyi" path="res://assets/grass_real_s102_seamless.png" id="4_g102"]
 [ext_resource type="Script" uid="uid://b072vqll3k3uj" path="res://scripts/pasto.gd" id="5_pasto"]
 [ext_resource type="Texture2D" uid="uid://bkotx82k8qxaa" path="res://assets/Start.png" id="6_u3swq"]
 [ext_resource type="PackedScene" uid="uid://ck1ll80fdvucb" path="res://escenas/ruta_aceite.tscn" id="7_w5su6"]
 [ext_resource type="PackedScene" uid="uid://canow4o0co8xk" path="res://escenas/ruta_power_up.tscn" id="8_m8m1i"]
+[ext_resource type="AudioStream" uid="uid://cl6tamw4pifbt" path="res://assets/Publico.mp3" id="9_publi"]
+[ext_resource type="AudioStream" uid="uid://bevj332whhgap" path="res://assets/MotorAceleracion.mp3" id="14_motor"]
+[ext_resource type="Texture2D" uid="uid://bvsh8yyuxuwi5" path="res://assets/pink_car.png" id="10_pink"]
+[ext_resource type="Texture2D" uid="uid://bqewsju3o8ww0" path="res://assets/white_car.png" id="11_white"]
+[ext_resource type="Texture2D" uid="uid://2qrf2atmay6r" path="res://assets/red_car.png" id="12_red"]
+[ext_resource type="Texture2D" uid="uid://cjawq5vqc5s6p" path="res://assets/gray_car.png" id="13_gray"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -43,6 +50,9 @@ height = 32
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_o8dpa"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8dpa"]
+size = Vector2(1408.6567, 178.35162)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yg0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv02"]
@@ -52,8 +62,11 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -2244, -199, 46.687374, 137.46838, -46.687374, -137.46838, -1524, -1578, 23.343687, 173.78079, -23.343687, -173.78079, -1827, -1901, -93.37475, 98.56224, 93.37475, -98.56224, -1646, -2292, -80.17024, 18.863586, 80.17024, -18.863586, -1060, -2433, -96.8, -22, 96.8, 22, 467, -2433, -144.30498, -102.532486, 144.30498, 102.532486, 1173, -2285, -53.164993, -125.31748, 53.164993, 125.31748, 1752, -1538, -22.23968, -222.39679, 22.23968, 222.39679, 2082, -388, 37.974995, -89.75908, -37.974995, 89.75908, 2068, 951, 96.66362, -58.688625, -96.66362, 58.688625, 1799, 1509, 148.44771, 34.52272, -148.44771, -34.52272, 1382, 1604, 103.56817, 55.236355, -103.56817, -55.236355, 908, 1305, 51.356995, 61.03251, -51.356995, -61.03251, 390, 1120, 25.270626, 54.89112, -25.270626, -54.89112, 138, 649, 45.94975, 121.14024, -45.94975, -121.14024, 218, -18, 93.61344, 96.26121, -107.87903, -42.05198, -20, -372, 97.006, -51.35611, -125.53717, 94.15288, -522, -289, 0, -122.68405, 0, 122.68405, -784, 352, 59.915466, -85.59352, -59.915466, 85.59352, -764, 991, 88.44664, -57.062347, -88.44664, 57.062347, -1249, 1435, 82.74041, -8.559353, -82.74041, 8.559353, -2069, 1651, 125.53717, 57.062347, -125.53717, -57.062347, -2628, 1530, 22.82494, 125.53717, -22.82494, -125.53717, -2823, 1032, 0, 0, 0, 0, -2244, -199)
 }
 point_count = 25
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_control"]
+size = Vector2(40, 520)
 
 [node name="CarreraBrasil" type="Node2D" unique_id=1347419899]
+script = ExtResource("1_w5su6")
 
 [node name="Pasto" type="TileMapLayer" parent="." unique_id=1424766592]
 tile_map_data = PackedByteArray("AAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAA=")
@@ -80,15 +93,47 @@ texture_mode = 1
 texture_filter = 1
 texture = SubResource("CanvasTexture_o8dpa")
 
-[node name="Start" type="Sprite2D" parent="." unique_id=37209201]
-position = Vector2(-1977.7438, -744.75104)
+[node name="lineafin-start" type="Area2D" parent="." unique_id=1856140346]
+position = Vector2(-1978.0001, -750)
 rotation = 0.47472954
-scale = Vector2(0.2419412, 0.31884882)
+scale = Vector2(0.27453884, 0.31884882)
+collision_layer = 0
+
+[node name="Start" type="Sprite2D" parent="lineafin-start" unique_id=37209201]
 texture = ExtResource("6_u3swq")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lineafin-start" unique_id=1794206917]
+position = Vector2(-5.6132813, 126.855835)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_o8dpa")
+
 [node name="auto" parent="." unique_id=329217169 instance=ExtResource("2_5yg0m")]
-position = Vector2(-2105, -524)
+position = Vector2(-2213.8, -574.7)
 rotation = -1.134464
+
+[node name="GrayCar" parent="auto" index="0"]
+texture = ExtResource("10_pink")
+
+[node name="auto2" parent="." unique_id=1100952637 instance=ExtResource("2_5yg0m")]
+position = Vector2(-2141.3, -540.9)
+rotation = -1.134464
+
+[node name="GrayCar" parent="auto2" index="0"]
+texture = ExtResource("11_white")
+
+[node name="auto3" parent="." unique_id=1949120375 instance=ExtResource("2_5yg0m")]
+position = Vector2(-2068.7, -507.1)
+rotation = -1.134464
+
+[node name="GrayCar" parent="auto3" index="0"]
+texture = ExtResource("12_red")
+
+[node name="auto4" parent="." unique_id=328645459 instance=ExtResource("2_5yg0m")]
+position = Vector2(-1996.2, -473.3)
+rotation = -1.134464
+
+[node name="GrayCar" parent="auto4" index="0"]
+texture = ExtResource("13_gray")
 
 [node name="ZonaPasto" type="Area2D" parent="." unique_id=1897456753]
 script = ExtResource("5_pasto")
@@ -153,5 +198,55 @@ sueltaPowerUp = NodePath("../../SueltaPowerup")
 
 [node name="SueltaPowerup" type="Node" parent="." unique_id=1256209401]
 
+[node name="Controles" type="Node2D" parent="."]
+
+[node name="Control1" type="Area2D" parent="Controles"]
+position = Vector2(-273, -2443)
+rotation = 0.0
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control1"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control2" type="Area2D" parent="Controles"]
+position = Vector2(2076, 255)
+rotation = 1.5708
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control2"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control3" type="Area2D" parent="Controles"]
+position = Vector2(-643, -21)
+rotation = 1.9873
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control3"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control4" type="Area2D" parent="Controles"]
+position = Vector2(-2745, 1268)
+rotation = -1.8769
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control4"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Publico" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_publi")
+volume_db = -10.0
+autoplay = true
+
+[node name="Motor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_motor")
+volume_db = -18.0
+autoplay = true
+
+[connection signal="finished" from="Motor" to="Motor" method="play"]
+[connection signal="body_entered" from="lineafin-start" to="." method="_on_lineafinstart_body_entered"]
 [connection signal="body_entered" from="ZonaPasto" to="ZonaPasto" method="_on_body_entered"]
 [connection signal="body_exited" from="ZonaPasto" to="ZonaPasto" method="_on_body_exited"]
+[connection signal="body_entered" from="Controles/Control1" to="." method="_on_control_body_entered" binds= [1]]
+[connection signal="body_entered" from="Controles/Control2" to="." method="_on_control_body_entered" binds= [2]]
+[connection signal="body_entered" from="Controles/Control3" to="." method="_on_control_body_entered" binds= [3]]
+[connection signal="body_entered" from="Controles/Control4" to="." method="_on_control_body_entered" binds= [4]]

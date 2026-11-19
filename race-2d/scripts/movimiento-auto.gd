@@ -4,11 +4,17 @@ var acelerador: float = 0.0
 var velocidad: float = 0.0
 var volante: float = 0.0
 var friccion_pasto: float = 0.0
+var vueltas: int =0
+var control: int = 0
+
+@export var vueltas_totales: int = 3
 
 @export var cuerpo: CharacterBody2D
 @export var aceleracion: Node
 @export var nitro: Node
 @export var marchas: Node
+
+@export var controles : controlesDelPlayer
 
 @export var velocidad_max: float = 2500
 @export var fuerza_volante: float = 6.0
@@ -29,8 +35,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	volante = Input.get_axis("izquierda", "derecha")
 	acelerador= Input.is_action_pressed("acelerar")
-	print(marchas.obtener_marcha())
-	print(velocidad)
+
 	
 
 func _physics_process(delta: float) -> void:
@@ -70,3 +75,18 @@ func rotar_volante(delta: float) -> void:
 		
 func obtener_velocidad() -> float:
 	return velocidad
+	
+func pasar_control(numero: int) -> void:
+	if numero == control + 1:
+		control = numero
+
+
+func vuelta_completada(controles: int) -> void:
+	if control != controles:
+		return
+	control = 0
+	vueltas += 1
+	print("Las vueltas del auto ", cuerpo.name, ": ", vueltas)
+	if vueltas == vueltas_totales:
+		cuerpo.process_mode = Node.PROCESS_MODE_DISABLED
+		cuerpo.get_parent().llegar(cuerpo)
