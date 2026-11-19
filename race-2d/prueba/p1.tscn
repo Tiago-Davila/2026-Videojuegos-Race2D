@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddcyi8hmvmaem"]
 
-[ext_resource type="Texture2D" uid="uid://bgf4j5frs7c84" path="res://assets/pink_car.png" id="1_ejj67"]
+[ext_resource type="Texture2D" uid="uid://bvsh8yyuxuwi5" path="res://assets/pink_car.png" id="1_ejj67"]
 [ext_resource type="Script" uid="uid://cxucltgjfh064" path="res://prueba/controlesDelPlayer.gd" id="2_f1ws8"]
 [ext_resource type="Script" uid="uid://br62a4l1eh6qk" path="res://prueba/jugador.gd" id="2_jug"]
 
