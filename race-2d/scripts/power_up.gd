@@ -10,9 +10,5 @@ func _ready() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	body.get_node("Efecto").show()
+	body.get_node("PowerUp").activar()
 	queue_free()
-	await get_tree().create_timer(
-		10
-	).timeout
-	body.get_node("Efecto").hide()

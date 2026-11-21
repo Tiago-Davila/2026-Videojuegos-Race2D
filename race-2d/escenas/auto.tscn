@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://kaybybgixni6" path="res://scripts/power_up_auto.gd" id="7_7hx5f"]
 [ext_resource type="Texture2D" uid="uid://uaqxwiw1chs8" path="res://assets/tablero.svg" id="7_tablero"]
 [ext_resource type="Texture2D" uid="uid://c03xpl50rpfe7" path="res://assets/digitos.svg" id="8_digitos"]
-[ext_resource type="Resource" path="res://controles/jugador1.tres" id="10_ctrl"]
 [ext_resource type="Texture2D" uid="uid://cqwopcmatif18" path="res://assets/fuego_turbo.svg" id="9_fuego"]
+[ext_resource type="Resource" path="res://controles/jugador1.tres" id="10_ctrl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlhhn"]
 radius = 136.01471
@@ -75,7 +75,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k2vkc")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 9.0
 }]
@@ -166,10 +166,6 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[connection signal="body_entered" from="Efecto" to="PowerUp" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Efecto" to="PowerUp" method="_on_efecto_body_entered"]
-[connection signal="body_exited" from="Efecto" to="PowerUp" method="_on_efecto_body_exited"]
-[connection signal="visibility_changed" from="Efecto" to="PowerUp" method="_on_efecto_visibility_changed"]
 [node name="Llegada" type="Label" parent="HUD" unique_id=2065823929]
 visible = false
 offset_left = 176.0
@@ -197,3 +193,8 @@ show_behind_parent = true
 texture_filter = 1
 position = Vector2(-48, 0)
 texture = ExtResource("9_fuego")
+
+[connection signal="body_entered" from="Efecto" to="PowerUp" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Efecto" to="PowerUp" method="_on_efecto_body_entered"]
+[connection signal="body_exited" from="Efecto" to="PowerUp" method="_on_efecto_body_exited"]
+[connection signal="visibility_changed" from="Efecto" to="PowerUp" method="_on_efecto_visibility_changed"]
