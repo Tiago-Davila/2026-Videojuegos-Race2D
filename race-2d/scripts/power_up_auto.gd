@@ -23,10 +23,12 @@ func _actualizar_estado_area() -> void:
 		animacion.stop()
 
 func _on_efecto_body_entered(body: Node2D) -> void:
-	body.get_node("Movimiento").friccion_pasto = friccion_area
+	if body != get_parent():
+		body.get_node("Movimiento").friccion_pasto = friccion_area
 
 func _on_efecto_body_exited(body: Node2D) -> void:
-	body.get_node("Movimiento").friccion_pasto = 0.0
+	if body != get_parent():
+		body.get_node("Movimiento").friccion_pasto = 0.0
 
 func _on_efecto_visibility_changed() -> void:
 	_actualizar_estado_area()
