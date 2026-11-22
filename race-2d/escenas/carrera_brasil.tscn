@@ -18,6 +18,11 @@
 [ext_resource type="Resource" path="res://controles/jugador2.tres" id="16_ctrl2"]
 [ext_resource type="Resource" path="res://controles/jugador3.tres" id="17_ctrl3"]
 [ext_resource type="Resource" path="res://controles/jugador4.tres" id="18_ctrl4"]
+[ext_resource type="Texture2D" path="res://assets/gomas.svg" id="50_gomas"]
+[ext_resource type="Texture2D" path="res://assets/tribuna.svg" id="51_tribuna"]
+[ext_resource type="Texture2D" path="res://assets/arbol.svg" id="52_arbol"]
+[ext_resource type="Texture2D" path="res://assets/boxes.svg" id="53_boxes"]
+[ext_resource type="Texture2D" path="res://assets/cono.svg" id="54_cono"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g101"]
 texture = ExtResource("3_g101")
@@ -68,12 +73,915 @@ point_count = 25
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_control"]
 size = Vector2(40, 520)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goma"]
+size = Vector2(80, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cono"]
+radius = 17.0
+
 [node name="CarreraBrasil" type="Node2D" unique_id=1347419899]
 script = ExtResource("1_w5su6")
 
 [node name="Pasto" type="TileMapLayer" parent="." unique_id=1424766592]
-tile_map_data = PackedByteArray("AAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD4//n/AAAAAAAAAAD5//n/AAAAAAAAAAD6//n/AAAAAAAAAAD7//n/AAAAAAAAAAD8//n/AAAAAAAAAAD9//n/AAAAAAAAAAD+//n/AAAAAAAAAAD///n/AAAAAAAAAAAAAPn/AAAAAAAAAAABAPn/AAAAAAAAAAACAPn/AAAAAAAAAAADAPn/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAD4//r/AAAAAAAAAAD5//r/AAAAAAAAAAD6//r/AAAAAAAAAAD7//r/AAAAAAAAAAD8//r/AAAAAAAAAAD9//r/AAAAAAAAAAD+//r/AAAAAAAAAAD///r/AAAAAAAAAAAAAPr/AAAAAAAAAAABAPr/AAAAAAAAAAACAPr/AAAAAAAAAAADAPr/AAAAAAAAAAAEAPr/AAAAAAAAAAAFAPr/AAAAAAAAAAAGAPr/AAAAAAAAAAD4//v/AAAAAAAAAAD5//v/AAAAAAAAAAD6//v/AAAAAAAAAAD7//v/AAAAAAAAAAD8//v/AAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAAAAAAAAAD///v/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAAEAPv/AAAAAAAAAAAFAPv/AAAAAAAAAAAGAPv/AAAAAAAAAAD4//z/AAAAAAAAAAD5//z/AAAAAAAAAAD6//z/AAAAAAAAAAD7//z/AAAAAAAAAAD8//z/AAAAAAAAAAD9//z/AAAAAAAAAAD+//z/AAAAAAAAAAD///z/AAAAAAAAAAAAAPz/AAAAAAAAAAABAPz/AAAAAAAAAAACAPz/AAAAAAAAAAADAPz/AAAAAAAAAAAEAPz/AAAAAAAAAAAFAPz/AAAAAAAAAAAGAPz/AAAAAAAAAAD4//3/AAAAAAAAAAD5//3/AAAAAAAAAAD6//3/AAAAAAAAAAD7//3/AAAAAAAAAAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAGAP3/AAAAAAAAAAD4//7/AAAAAAAAAAD5//7/AAAAAAAAAAD6//7/AAAAAAAAAAD7//7/AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAADAP7/AAAAAAAAAAAEAP7/AAAAAAAAAAAFAP7/AAAAAAAAAAAGAP7/AAAAAAAAAAD4////AAAAAAAAAAD5////AAAAAAAAAAD6////AAAAAAAAAAD7////AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAD4/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAD4/wEAAAAAAAAAAAD5/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAD4/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAD6/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAD4/wMAAAAAAAAAAAD5/wMAAAAAAAAAAAD6/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAD4/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAD4/wUAAAAAAAAAAAD5/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_pasto")
+
+[node name="Decorados" type="Node2D" parent="."]
+
+[node name="Gomas" type="Node2D" parent="Decorados"]
+
+[node name="Arriba" type="Sprite2D" parent="Decorados/Gomas"]
+texture_repeat = 2
+position = Vector2(-386, -2862)
+texture = ExtResource("50_gomas")
+region_enabled = true
+region_rect = Rect2(0, 0, 6960, 240)
+
+[node name="Abajo" type="Sprite2D" parent="Decorados/Gomas"]
+texture_repeat = 2
+position = Vector2(-386, 2023)
+texture = ExtResource("50_gomas")
+region_enabled = true
+region_rect = Rect2(0, 0, 6960, 240)
+
+[node name="Izquierda" type="Sprite2D" parent="Decorados/Gomas"]
+texture_repeat = 2
+position = Vector2(-3743, -419.5)
+rotation = 1.5707964
+texture = ExtResource("50_gomas")
+region_enabled = true
+region_rect = Rect2(0, 0, 5120, 240)
+
+[node name="Derecha" type="Sprite2D" parent="Decorados/Gomas"]
+texture_repeat = 2
+position = Vector2(2971, -419.5)
+rotation = 1.5707964
+texture = ExtResource("50_gomas")
+region_enabled = true
+region_rect = Rect2(0, 0, 5120, 240)
+
+[node name="Tribunas" type="Node2D" parent="Decorados"]
+
+[node name="Conos" type="Node2D" parent="Decorados"]
+
+[node name="Tribuna1" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(-2626, -3133)
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna2" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(-1506, -3133)
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna3" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(-386, -3133)
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna4" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(734, -3133)
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna5" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(1854, -3133)
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna6" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(-2626, 2294)
+rotation = 3.1415927
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna7" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(-1506, 2294)
+rotation = 3.1415927
+texture = ExtResource("51_tribuna")
+
+[node name="Boxes" type="Sprite2D" parent="Decorados"]
+position = Vector2(-386, 2304)
+rotation = 3.1415927
+texture = ExtResource("53_boxes")
+
+[node name="Tribuna8" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(734, 2294)
+rotation = 3.1415927
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna9" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(1854, 2294)
+rotation = 3.1415927
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna10" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(-4000, -2100)
+rotation = -1.5707964
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna11" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(-4000, -980)
+rotation = -1.5707964
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna12" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(-4000, 140)
+rotation = -1.5707964
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna13" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(-4000, 1260)
+rotation = -1.5707964
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna14" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(3228, -2100)
+rotation = 1.5707964
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna15" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(3228, -980)
+rotation = 1.5707964
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna16" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(3228, 140)
+rotation = 1.5707964
+texture = ExtResource("51_tribuna")
+
+[node name="Tribuna17" type="Sprite2D" parent="Decorados/Tribunas"]
+position = Vector2(3228, 1260)
+rotation = 1.5707964
+texture = ExtResource("51_tribuna")
+
+[node name="Cono1" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-2116, -3133)
+texture = ExtResource("54_cono")
+
+[node name="Cono2" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-2016, -3133)
+texture = ExtResource("54_cono")
+
+[node name="Cono3" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-996, -3133)
+texture = ExtResource("54_cono")
+
+[node name="Cono4" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-896, -3133)
+texture = ExtResource("54_cono")
+
+[node name="Cono5" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(124, -3133)
+texture = ExtResource("54_cono")
+
+[node name="Cono6" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(224, -3133)
+texture = ExtResource("54_cono")
+
+[node name="Cono7" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(1244, -3133)
+texture = ExtResource("54_cono")
+
+[node name="Cono8" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(1344, -3133)
+texture = ExtResource("54_cono")
+
+[node name="Cono9" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-2116, 2294)
+texture = ExtResource("54_cono")
+
+[node name="Cono10" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-2016, 2294)
+texture = ExtResource("54_cono")
+
+[node name="Cono11" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-996, 2294)
+texture = ExtResource("54_cono")
+
+[node name="Cono12" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-896, 2294)
+texture = ExtResource("54_cono")
+
+[node name="Cono13" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(124, 2294)
+texture = ExtResource("54_cono")
+
+[node name="Cono14" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(224, 2294)
+texture = ExtResource("54_cono")
+
+[node name="Cono15" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(1244, 2294)
+texture = ExtResource("54_cono")
+
+[node name="Cono16" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(1344, 2294)
+texture = ExtResource("54_cono")
+
+[node name="Cono17" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-4000, -1590)
+texture = ExtResource("54_cono")
+
+[node name="Cono18" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-4000, -1490)
+texture = ExtResource("54_cono")
+
+[node name="Cono19" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-4000, -470)
+texture = ExtResource("54_cono")
+
+[node name="Cono20" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-4000, -370)
+texture = ExtResource("54_cono")
+
+[node name="Cono21" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-4000, 650)
+texture = ExtResource("54_cono")
+
+[node name="Cono22" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(-4000, 750)
+texture = ExtResource("54_cono")
+
+[node name="Cono23" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(3228, -1590)
+texture = ExtResource("54_cono")
+
+[node name="Cono24" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(3228, -1490)
+texture = ExtResource("54_cono")
+
+[node name="Cono25" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(3228, -470)
+texture = ExtResource("54_cono")
+
+[node name="Cono26" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(3228, -370)
+texture = ExtResource("54_cono")
+
+[node name="Cono27" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(3228, 650)
+texture = ExtResource("54_cono")
+
+[node name="Cono28" type="Sprite2D" parent="Decorados/Conos"]
+position = Vector2(3228, 750)
+texture = ExtResource("54_cono")
+
+[node name="Arboles" type="Node2D" parent="Decorados"]
+
+[node name="Arbol1" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4142, 2862)
+rotation = 0.533
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol2" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(1828, 3206)
+rotation = 3.417
+scale = Vector2(1.32, 1.32)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol3" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4993, -3882)
+rotation = 2.0
+scale = Vector2(1.06, 1.06)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol4" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-3006, -3908)
+rotation = 0.858
+scale = Vector2(0.98, 0.98)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol5" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-284, 3234)
+rotation = 1.142
+scale = Vector2(1.17, 1.17)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol6" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3521, 1755)
+rotation = 5.693
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol7" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-1838, 3105)
+rotation = 1.012
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol8" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-485, 2693)
+rotation = 5.222
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol9" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3582, -705)
+rotation = 5.78
+scale = Vector2(1.11, 1.11)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol10" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3664, -2118)
+rotation = 1.944
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol11" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4155, 1091)
+rotation = 3.251
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol12" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-268, 2762)
+rotation = 0.473
+scale = Vector2(1.14, 1.14)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol13" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3661, -2681)
+rotation = 0.369
+scale = Vector2(1.21, 1.21)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol14" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4295, -256)
+rotation = 1.538
+scale = Vector2(1.27, 1.27)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol15" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5034, -1428)
+rotation = 4.225
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol16" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4527, 2911)
+rotation = 4.581
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol17" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5140, -2210)
+rotation = 0.987
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol18" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-1522, -3767)
+rotation = 0.951
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol19" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4990, -1561)
+rotation = 4.663
+scale = Vector2(1.14, 1.14)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol20" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5044, -796)
+rotation = 4.647
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol21" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3605, 1454)
+rotation = 4.43
+scale = Vector2(1.27, 1.27)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol22" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4337, -802)
+rotation = 0.801
+scale = Vector2(1.28, 1.28)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol23" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4178, -2185)
+rotation = 2.636
+scale = Vector2(1.13, 1.13)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol24" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5171, 5)
+rotation = 0.357
+scale = Vector2(0.88, 0.88)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol25" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5017, -2902)
+rotation = 3.988
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol26" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-304, 3123)
+rotation = 6.246
+scale = Vector2(1.31, 1.31)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol27" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5302, -3823)
+rotation = 0.698
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol28" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4359, -2751)
+rotation = 1.365
+scale = Vector2(0.93, 0.93)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol29" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-3241, 2559)
+rotation = 4.578
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol30" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(419, -3708)
+rotation = 3.297
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol31" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-3551, -3396)
+rotation = 2.3
+scale = Vector2(1.24, 1.24)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol32" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-195, 2668)
+rotation = 1.819
+scale = Vector2(1.14, 1.14)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol33" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4414, -1356)
+rotation = 4.304
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol34" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4346, -1842)
+rotation = 4.224
+scale = Vector2(1.26, 1.26)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol35" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5194, -775)
+rotation = 3.051
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol36" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4617, -1999)
+rotation = 5.873
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol37" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4590, 1449)
+rotation = 3.589
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol38" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4551, 2145)
+rotation = 6.027
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol39" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(1527, -3902)
+rotation = 4.881
+scale = Vector2(1.16, 1.16)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol40" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4128, 1810)
+rotation = 5.25
+scale = Vector2(1.31, 1.31)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol41" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3770, 210)
+rotation = 0.603
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol42" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-1815, 3227)
+rotation = 2.617
+scale = Vector2(0.88, 0.88)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol43" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4686, -3452)
+rotation = 6.209
+scale = Vector2(1.29, 1.29)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol44" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4237, -120)
+rotation = 4.746
+scale = Vector2(1.32, 1.32)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol45" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4395, -299)
+rotation = 1.616
+scale = Vector2(1.19, 1.19)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol46" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3535, -706)
+rotation = 2.538
+scale = Vector2(1.19, 1.19)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol47" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4530, 1653)
+rotation = 0.909
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol48" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-970, -3868)
+rotation = 5.538
+scale = Vector2(1.13, 1.13)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol49" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(1703, 2780)
+rotation = 2.967
+scale = Vector2(1.19, 1.19)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol50" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4201, -1660)
+rotation = 4.135
+scale = Vector2(1.21, 1.21)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol51" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4352, 568)
+rotation = 2.917
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol52" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5180, 2828)
+rotation = 3.808
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol53" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3638, 2399)
+rotation = 5.122
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol54" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-3315, 3001)
+rotation = 0.019
+scale = Vector2(0.84, 0.84)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol55" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-357, -3881)
+rotation = 4.735
+scale = Vector2(0.84, 0.84)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol56" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5247, 1)
+rotation = 2.301
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol57" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3731, -3521)
+rotation = 1.91
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol58" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(2997, -3402)
+rotation = 2.456
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol59" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-2595, 2934)
+rotation = 5.141
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol60" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-2189, -3516)
+rotation = 1.046
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol61" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3531, 2671)
+rotation = 4.017
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol62" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3879, -1693)
+rotation = 1.494
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol63" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3843, -400)
+rotation = 5.958
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol64" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3281, 2772)
+rotation = 6.149
+scale = Vector2(1.21, 1.21)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol65" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4158, -1489)
+rotation = 5.612
+scale = Vector2(1.06, 1.06)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol66" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-3499, 2956)
+rotation = 0.176
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol67" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3760, 2388)
+rotation = 2.741
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol68" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3845, -3387)
+rotation = 1.283
+scale = Vector2(0.88, 0.88)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol69" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4738, -3028)
+rotation = 2.699
+scale = Vector2(1.27, 1.27)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol70" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4552, -1209)
+rotation = 3.89
+scale = Vector2(1.06, 1.06)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol71" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-3, 3134)
+rotation = 5.28
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol72" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-140, -3745)
+rotation = 6.25
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol73" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4077, 2785)
+rotation = 5.747
+scale = Vector2(1.17, 1.17)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol74" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4582, -1842)
+rotation = 0.056
+scale = Vector2(1.24, 1.24)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol75" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4298, -1514)
+rotation = 0.922
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol76" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(1299, -3409)
+rotation = 4.078
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol77" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4856, 2502)
+rotation = 3.024
+scale = Vector2(0.93, 0.93)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol78" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-365, -3641)
+rotation = 5.769
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol79" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4275, -2531)
+rotation = 1.352
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol80" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3174, 2542)
+rotation = 3.185
+scale = Vector2(1.19, 1.19)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol81" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3754, -2889)
+rotation = 5.136
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol82" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(2248, 3148)
+rotation = 4.415
+scale = Vector2(0.93, 0.93)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol83" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5046, -41)
+rotation = 1.22
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol84" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4876, 1575)
+rotation = 5.247
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol85" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(588, -3803)
+rotation = 0.68
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol86" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-3499, 2920)
+rotation = 5.647
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol87" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3610, 86)
+rotation = 2.609
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol88" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3689, -2512)
+rotation = 3.379
+scale = Vector2(0.98, 0.98)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol89" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3822, -2609)
+rotation = 4.354
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol90" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5225, 2295)
+rotation = 1.966
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol91" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(2925, -3949)
+rotation = 0.828
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol92" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-1620, -3608)
+rotation = 5.742
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol93" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(2600, 2628)
+rotation = 1.88
+scale = Vector2(0.88, 0.88)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol94" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4228, 2702)
+rotation = 4.419
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol95" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4736, 794)
+rotation = 3.903
+scale = Vector2(0.88, 0.88)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol96" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(4285, -1212)
+rotation = 2.386
+scale = Vector2(1.06, 1.06)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol97" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4451, 2846)
+rotation = 0.338
+scale = Vector2(1.17, 1.17)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol98" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-3155, -3902)
+rotation = 0.812
+scale = Vector2(1.06, 1.06)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol99" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(1067, 2824)
+rotation = 3.504
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol100" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4490, 826)
+rotation = 0.88
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol101" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-652, 2837)
+rotation = 2.136
+scale = Vector2(1, 1)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol102" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3809, 357)
+rotation = 4.925
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol103" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-1742, 2859)
+rotation = 5.055
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol104" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3545, -351)
+rotation = 0.161
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol105" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-5268, 844)
+rotation = 4.492
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol106" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3209, -3521)
+rotation = 3.828
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol107" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(-4903, 262)
+rotation = 5.194
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol108" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3628, -3788)
+rotation = 4.949
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol109" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(3533, -1131)
+rotation = 0.696
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("52_arbol")
+
+[node name="Arbol110" type="Sprite2D" parent="Decorados/Arboles"]
+position = Vector2(577, -3588)
+rotation = 1.193
+scale = Vector2(0.93, 0.93)
+texture = ExtResource("52_arbol")
 
 [node name="Pista1" parent="." unique_id=91167748 instance=ExtResource("1_jhv02")]
 scale = Vector2(2.5885482, 2.492673)
@@ -95,6 +1003,360 @@ texture_mode = 1
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131550049]
 texture_filter = 1
 texture = SubResource("CanvasTexture_o8dpa")
+
+[node name="Obstaculos" type="Node2D" parent="."]
+
+[node name="Gomas1" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-3276, -2408)
+rotation = 1.9424
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas1"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas1"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono1" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-2529, -2525)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono1"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono1"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono2" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-2484, -2486)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono2"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono2"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas2" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-2079, -2520)
+rotation = -1.8217
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas2"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas2"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono3" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(2138, -2514)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono3"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono3"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono4" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(2079, -2526)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono4"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono4"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas3" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-3400, -1718)
+rotation = -1.3581
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas3"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas3"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono5" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-2537, -1818)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono5"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono5"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono6" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-2525, -1877)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono6"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono6"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas4" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-470, -1775)
+rotation = -2.7687
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas4"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas4"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono7" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(256, -1708)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono7"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono7"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono8" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(242, -1767)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono8"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono8"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas5" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-3279, -831)
+rotation = -2.5226
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas5"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas5"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono9" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-2493, -949)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono9"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono9"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono10" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-2434, -944)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono10"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono10"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas6" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-433, -885)
+rotation = 2.9555
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas6"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas6"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono11" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(288, -1063)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono11"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono11"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono12" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(336, -1027)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono12"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono12"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas7" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(963, -1025)
+rotation = 1.5617
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas7"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas7"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono13" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-3278, -100)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono13"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono13"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono14" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-3333, -76)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono14"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono14"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas8" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-1097, -447)
+rotation = 3.0651
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas8"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas8"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono15" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(984, -186)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono15"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono15"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono16" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(928, -209)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono16"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono16"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas9" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-3400, 665)
+rotation = -2.1248
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas9"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas9"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono17" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-1936, 706)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono17"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono17"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono18" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-1904, 656)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono18"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono18"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas10" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(998, 484)
+rotation = -1.8958
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas10"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas10"]
+shape = SubResource("RectangleShape2D_goma")
+
+[node name="Cono19" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-3391, 1173)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono19"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono19"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Cono20" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-3335, 1152)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Cono20"]
+texture = ExtResource("54_cono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Cono20"]
+shape = SubResource("CircleShape2D_cono")
+
+[node name="Gomas11" type="StaticBody2D" parent="Obstaculos"]
+position = Vector2(-487, 1482)
+rotation = 0.2975
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstaculos/Gomas11"]
+texture = ExtResource("50_gomas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculos/Gomas11"]
+shape = SubResource("RectangleShape2D_goma")
 
 [node name="lineafin-start" type="Area2D" parent="." unique_id=1856140346]
 position = Vector2(-1978.0001, -750)
@@ -212,35 +1474,67 @@ sueltaPowerUp = NodePath("../../SueltaPowerup")
 
 [node name="Controles" type="Node2D" parent="."]
 
-[node name="Control1" type="Area2D" parent="Controles" unique_id=330725260]
+[node name="Control1" type="Area2D" parent="Controles"]
+position = Vector2(-1735.6, -2105.1)
+rotation = -1.1324
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control1"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control2" type="Area2D" parent="Controles"]
 position = Vector2(-273, -2443)
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control1" unique_id=1429755172]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control2"]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Control2" type="Area2D" parent="Controles" unique_id=1098223303]
+[node name="Control3" type="Area2D" parent="Controles"]
+position = Vector2(1458.6, -1926.8)
+rotation = 0.8902
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control3"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control4" type="Area2D" parent="Controles"]
 position = Vector2(2076, 255)
 rotation = 1.5708
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control2" unique_id=1571384641]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control4"]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Control3" type="Area2D" parent="Controles" unique_id=84298991]
+[node name="Control5" type="Area2D" parent="Controles"]
+position = Vector2(635.5, 1208.9)
+rotation = -2.8295
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control5"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control6" type="Area2D" parent="Controles"]
 position = Vector2(-643, -21)
 rotation = 1.9873
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control3" unique_id=1198148625]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control6"]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Control4" type="Area2D" parent="Controles" unique_id=1172415617]
+[node name="Control7" type="Area2D" parent="Controles"]
+position = Vector2(-1673.5, 1545.5)
+rotation = 2.9046
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control7"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control8" type="Area2D" parent="Controles"]
 position = Vector2(-2745, 1268)
 rotation = -1.8769
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control4" unique_id=40508090]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control8"]
 shape = SubResource("RectangleShape2D_control")
 
 [node name="Publico" type="AudioStreamPlayer" parent="." unique_id=937975352]
@@ -260,6 +1554,10 @@ autoplay = true
 [connection signal="body_entered" from="Controles/Control2" to="." method="_on_control_body_entered" binds= [2]]
 [connection signal="body_entered" from="Controles/Control3" to="." method="_on_control_body_entered" binds= [3]]
 [connection signal="body_entered" from="Controles/Control4" to="." method="_on_control_body_entered" binds= [4]]
+[connection signal="body_entered" from="Controles/Control5" to="." method="_on_control_body_entered" binds= [5]]
+[connection signal="body_entered" from="Controles/Control6" to="." method="_on_control_body_entered" binds= [6]]
+[connection signal="body_entered" from="Controles/Control7" to="." method="_on_control_body_entered" binds= [7]]
+[connection signal="body_entered" from="Controles/Control8" to="." method="_on_control_body_entered" binds= [8]]
 [connection signal="finished" from="Motor" to="Motor" method="play"]
 
 [editable path="auto"]

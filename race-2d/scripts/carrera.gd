@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var controles: int = 4
+@export var controles: int = 8
 
 var tiempo: float = 0.0
 var llegadas: int = 0
