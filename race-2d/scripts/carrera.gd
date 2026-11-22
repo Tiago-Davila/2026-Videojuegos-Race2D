@@ -11,6 +11,14 @@ func _ready() -> void:
 	for auto in get_tree().get_nodes_in_group("autos").slice(Juego.jugadores):
 		auto.queue_free()
 
+	## con 1 jugador no se usa el divisor de pantalla, asi que le ponemos
+	## una camara al auto para que lo siga 
+	if Juego.jugadores == 1:
+		var camara := Camera2D.new()
+		camara.zoom = Vector2(0.4, 0.4)
+		$auto.add_child(camara)
+		camara.make_current()
+
 
 func _process(delta: float) -> void:
 	tiempo += delta
