@@ -115,13 +115,14 @@ script = ExtResource("2_acele")
 script = ExtResource("3_nitro")
 fuego = NodePath("../Fuego")
 
-[node name="Movimiento" type="Node" parent="." unique_id=1417817607 node_paths=PackedStringArray("cuerpo", "aceleracion", "nitro", "marchas")]
+[node name="Movimiento" type="Node" parent="." unique_id=1417817607 node_paths=PackedStringArray("cuerpo", "aceleracion", "nitro", "marchas", "hud")]
 script = ExtResource("1_j252b")
 cuerpo = NodePath("..")
 aceleracion = NodePath("../Aceleracion")
 nitro = NodePath("../Nitro")
 marchas = NodePath("../Marcha")
 controles = ExtResource("10_ctrl")
+hud = NodePath("../HUD")
 
 [node name="Marcha" type="Node" parent="." unique_id=318074638 node_paths=PackedStringArray("aceleracion")]
 script = ExtResource("5_0wprh")
@@ -132,7 +133,7 @@ script = ExtResource("7_7hx5f")
 animacion = NodePath("../Efecto/Animacion")
 areaEfecto = NodePath("../Efecto")
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1096684590 node_paths=PackedStringArray("movimiento", "marchas", "marcha", "velocidad", "llegada", "tiempo")]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1096684590 node_paths=PackedStringArray("movimiento", "marchas", "marcha", "velocidad", "llegada", "tiempo", "aviso", "temporizador")]
 script = ExtResource("6_hud")
 movimiento = NodePath("../Movimiento")
 marchas = NodePath("../Marcha")
@@ -140,6 +141,8 @@ marcha = NodePath("Tablero/Marcha")
 velocidad = NodePath("Tablero/Velocidad")
 llegada = NodePath("Llegada")
 tiempo = NodePath("Llegada/Tiempo")
+aviso = NodePath("Aviso")
+temporizador = NodePath("Temporizador")
 
 [node name="Tablero" type="Node2D" parent="HUD" unique_id=1434457080]
 position = Vector2(787, 446)
@@ -191,9 +194,27 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 44
 horizontal_alignment = 1
 
+[node name="Aviso" type="Label" parent="HUD"]
+visible = false
+offset_left = 176.0
+offset_top = 290.0
+offset_right = 976.0
+offset_bottom = 350.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 36
+text = "¡Te saltaste un control! Volvés al anterior"
+horizontal_alignment = 1
+
+[node name="Temporizador" type="Timer" parent="HUD"]
+wait_time = 2.0
+one_shot = true
+
 [node name="Fuego" type="Sprite2D" parent="." unique_id=409672697]
 visible = false
 show_behind_parent = true
 texture_filter = 1
 position = Vector2(-48, 0)
 texture = ExtResource("9_fuego")
+
+[connection signal="timeout" from="HUD/Temporizador" to="HUD/Aviso" method="hide"]

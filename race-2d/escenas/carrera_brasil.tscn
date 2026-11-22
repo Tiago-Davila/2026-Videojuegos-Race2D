@@ -1474,35 +1474,67 @@ sueltaPowerUp = NodePath("../../SueltaPowerup")
 
 [node name="Controles" type="Node2D" parent="."]
 
-[node name="Control1" type="Area2D" parent="Controles" unique_id=330725260]
+[node name="Control1" type="Area2D" parent="Controles"]
+position = Vector2(-1735.6, -2105.1)
+rotation = -1.1324
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control1"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control2" type="Area2D" parent="Controles"]
 position = Vector2(-273, -2443)
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control1" unique_id=1429755172]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control2"]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Control2" type="Area2D" parent="Controles" unique_id=1098223303]
+[node name="Control3" type="Area2D" parent="Controles"]
+position = Vector2(1458.6, -1926.8)
+rotation = 0.8902
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control3"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control4" type="Area2D" parent="Controles"]
 position = Vector2(2076, 255)
 rotation = 1.5708
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control2" unique_id=1571384641]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control4"]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Control3" type="Area2D" parent="Controles" unique_id=84298991]
+[node name="Control5" type="Area2D" parent="Controles"]
+position = Vector2(635.5, 1208.9)
+rotation = -2.8295
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control5"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control6" type="Area2D" parent="Controles"]
 position = Vector2(-643, -21)
 rotation = 1.9873
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control3" unique_id=1198148625]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control6"]
 shape = SubResource("RectangleShape2D_control")
 
-[node name="Control4" type="Area2D" parent="Controles" unique_id=1172415617]
+[node name="Control7" type="Area2D" parent="Controles"]
+position = Vector2(-1673.5, 1545.5)
+rotation = 2.9046
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control7"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control8" type="Area2D" parent="Controles"]
 position = Vector2(-2745, 1268)
 rotation = -1.8769
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control4" unique_id=40508090]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control8"]
 shape = SubResource("RectangleShape2D_control")
 
 [node name="Publico" type="AudioStreamPlayer" parent="." unique_id=937975352]
@@ -1522,6 +1554,10 @@ autoplay = true
 [connection signal="body_entered" from="Controles/Control2" to="." method="_on_control_body_entered" binds= [2]]
 [connection signal="body_entered" from="Controles/Control3" to="." method="_on_control_body_entered" binds= [3]]
 [connection signal="body_entered" from="Controles/Control4" to="." method="_on_control_body_entered" binds= [4]]
+[connection signal="body_entered" from="Controles/Control5" to="." method="_on_control_body_entered" binds= [5]]
+[connection signal="body_entered" from="Controles/Control6" to="." method="_on_control_body_entered" binds= [6]]
+[connection signal="body_entered" from="Controles/Control7" to="." method="_on_control_body_entered" binds= [7]]
+[connection signal="body_entered" from="Controles/Control8" to="." method="_on_control_body_entered" binds= [8]]
 [connection signal="finished" from="Motor" to="Motor" method="play"]
 
 [editable path="auto"]

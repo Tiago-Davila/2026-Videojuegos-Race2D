@@ -37,7 +37,8 @@ func _ready() -> void:
 	autoP2.get_node("HUD").custom_viewport = viewPortP2
 	autoP3.get_node("HUD").custom_viewport = viewPortP3
 	autoP4.get_node("HUD").custom_viewport = viewPortP4
-	autoP1.get_node("HUD").scale = Vector2(0.5, 0.5)
+	autoP1.get_node("HUD").scale = Vector2.ONE if Juego.jugadores == 1 else Vector2(0.5, 0.5)
+	$GridContainer.columns = 1 if Juego.jugadores == 1 else 2
 	autoP2.get_node("HUD").scale = Vector2(0.5, 0.5)
 	autoP3.get_node("HUD").scale = Vector2(0.5, 0.5)
 	autoP4.get_node("HUD").scale = Vector2(0.5, 0.5)

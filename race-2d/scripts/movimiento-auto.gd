@@ -6,6 +6,7 @@ var volante: float = 0.0
 var friccion_pasto: float = 0.0
 var vueltas: int =0
 var control: int = 0
+var ultimo_punto: Transform2D
 
 @export var vueltas_totales: int = 3
 
@@ -15,6 +16,7 @@ var control: int = 0
 @export var marchas: Node
 
 @export var controles : controlesDelPlayer
+@export var hud: Node
 
 @export var velocidad_max: float = 2500
 @export var fuerza_volante: float = 6.0
@@ -28,7 +30,7 @@ var control: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	ultimo_punto = cuerpo.global_transform
 
 
 func _physics_process(delta: float) -> void:
@@ -72,12 +74,18 @@ func obtener_velocidad() -> float:
 func pasar_control(numero: int) -> void:
 	if numero == control + 1:
 		control = numero
+		ultimo_punto = cuerpo.global_transform
+	elif numero > control + 1:
+		cuerpo.global_transform = ultimo_punto
+		velocidad = 0.0
+		hud.mostrar_aviso()
 
 
 func vuelta_completada(controles: int) -> void:
 	if control != controles:
 		return
 	control = 0
+	ultimo_punto = cuerpo.global_transform
 	vueltas += 1
 	print("Las vueltas del auto ", cuerpo.name, ": ", vueltas)
 	if vueltas == vueltas_totales:

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var controles: int = 4
+@export var controles: int = 8
 
 var tiempo: float = 0.0
 var llegadas: int = 0
@@ -10,14 +10,6 @@ func _ready() -> void:
 	## para sacar los autos que sobran
 	for auto in get_tree().get_nodes_in_group("autos").slice(Juego.jugadores):
 		auto.queue_free()
-
-	## con 1 jugador no se usa el divisor de pantalla, asi que le ponemos
-	## una camara al auto para que lo siga 
-	if Juego.jugadores == 1:
-		var camara := Camera2D.new()
-		camara.zoom = Vector2(0.4, 0.4)
-		$auto.add_child(camara)
-		camara.make_current()
 
 
 func _process(delta: float) -> void:

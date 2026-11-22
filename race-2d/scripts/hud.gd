@@ -6,6 +6,13 @@ extends CanvasLayer
 @export var velocidad: Label
 @export var llegada: Label
 @export var tiempo: Label
+@export var aviso: Label
+@export var temporizador: Timer
+
+
+func mostrar_aviso() -> void:
+	aviso.show()
+	temporizador.start()
 
 
 func mostrar_llegada(lugar: int, segundos: float) -> void:

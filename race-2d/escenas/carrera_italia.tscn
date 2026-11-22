@@ -1631,35 +1631,66 @@ sueltaPowerUp = NodePath("../../SueltaPowerup")
 [node name="Controles" type="Node2D" parent="."]
 
 [node name="Control1" type="Area2D" parent="Controles"]
-position = Vector2(-3312, 22)
-rotation = -1.7272
+position = Vector2(-1756.3, 746.6)
+rotation = 3.1159
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control1"]
 shape = SubResource("RectangleShape2D_control")
 
 [node name="Control2" type="Area2D" parent="Controles"]
-position = Vector2(-1651, -1123)
-rotation = 0.5713
+position = Vector2(-3312.0, 22.4)
+rotation = -1.7272
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control2"]
 shape = SubResource("RectangleShape2D_control")
 
 [node name="Control3" type="Area2D" parent="Controles"]
-position = Vector2(1057, 22)
-rotation = 0.0
+position = Vector2(-2718.0, -1459.5)
+rotation = -0.6926
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control3"]
 shape = SubResource("RectangleShape2D_control")
 
 [node name="Control4" type="Area2D" parent="Controles"]
-position = Vector2(971, 695)
-rotation = 3.1416
+position = Vector2(-1651.5, -1122.9)
+rotation = 0.5713
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control4"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control5" type="Area2D" parent="Controles"]
+position = Vector2(-671.7, -516.0)
+rotation = 0.535
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control5"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control6" type="Area2D" parent="Controles"]
+position = Vector2(1057.4, 22.4)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control6"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control7" type="Area2D" parent="Controles"]
+position = Vector2(2019.1, 695.5)
+rotation = 3.1416
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control7"]
+shape = SubResource("RectangleShape2D_control")
+
+[node name="Control8" type="Area2D" parent="Controles"]
+position = Vector2(970.7, 695.5)
+rotation = 3.1416
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controles/Control8"]
 shape = SubResource("RectangleShape2D_control")
 
 [node name="Publico" type="AudioStreamPlayer" parent="."]
@@ -1680,6 +1711,10 @@ autoplay = true
 [connection signal="body_entered" from="Controles/Control2" to="." method="_on_control_body_entered" binds= [2]]
 [connection signal="body_entered" from="Controles/Control3" to="." method="_on_control_body_entered" binds= [3]]
 [connection signal="body_entered" from="Controles/Control4" to="." method="_on_control_body_entered" binds= [4]]
+[connection signal="body_entered" from="Controles/Control5" to="." method="_on_control_body_entered" binds= [5]]
+[connection signal="body_entered" from="Controles/Control6" to="." method="_on_control_body_entered" binds= [6]]
+[connection signal="body_entered" from="Controles/Control7" to="." method="_on_control_body_entered" binds= [7]]
+[connection signal="body_entered" from="Controles/Control8" to="." method="_on_control_body_entered" binds= [8]]
 
 [editable path="auto"]
 [editable path="auto2"]
